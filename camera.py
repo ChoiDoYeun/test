@@ -42,33 +42,21 @@ existing_items = {
     'A31': '차량3'
 }
 
-# 미리 저장된 차량 로드
-warehouse.load_existing_items(existing_items)
+def main_loop():
+    warehouse = Warehouse()
+    existing_items = {
+        'A12': '차량1',
+        'A21': '차량2',
+        'A31': '차량3'
+    }
+    warehouse.load_existing_items(existing_items)
+    qr_code_image_path = 'captured_image.jpg'
 
-# QR 코드 이미지 경로
-qr_code_image_path = 'captured_image.jpg'
+    while True:
+        capture_image(qr_code_image_path)
+        qr_data = read_qr_code(qr_code_image_path)
+        # ...(QR 코드 처리 및 출력 코드)
+        time.sleep(2)
 
-while True:
-    # 이미지 캡처
-    capture_image(qr_code_image_path)
-
-    # QR 코드 읽기
-    qr_data = read_qr_code(qr_code_image_path)
-
-    if qr_data:
-        # QR 코드 데이터를 개별 차량 데이터로 분리
-        cars = qr_data.split('\n')
-
-        # 각 차량을 창고에 저장하고 위치 출력
-        for car in cars:
-            if car:  # 빈 문자열이 아닌 경우에만 처리
-                location = warehouse.store_item(car)
-                if location:
-                    print(f"{car}가 {location}에 저장되었습니다.")
-                else:
-                    print(f"{car}를 저장할 공간이 없습니다.")
-    else:
-        print("QR 코드를 읽을 수 없습니다.")
-
-    # 2초 대기
-    time.sleep(2)
+if __name__ == "__main__":
+    main_loop()
