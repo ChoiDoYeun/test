@@ -1,7 +1,7 @@
+# camera.py
 import subprocess
 from PIL import Image
 from pyzbar.pyzbar import decode
-import cv2
 import time
 
 class Warehouse:
@@ -32,16 +32,6 @@ def read_qr_code(image_path):
     decoded_objects = decode(img)
     return decoded_objects[0].data.decode() if decoded_objects else ""
 
-# 창고 객체 생성
-warehouse = Warehouse()
-
-# 미리 저장된 차량 데이터
-existing_items = {
-    'A12': '차량1',
-    'A21': '차량2',
-    'A31': '차량3'
-}
-
 def main_loop():
     warehouse = Warehouse()
     existing_items = {
@@ -50,13 +40,26 @@ def main_loop():
         'A31': '차량3'
     }
     warehouse.load_existing_items(existing_items)
+
     qr_code_image_path = 'captured_image.jpg'
 
     while True:
         capture_image(qr_code_image_path)
         qr_data = read_qr_code(qr_code_image_path)
-        # ...(QR 코드 처리 및 출력 코드)
-        time.sleep(2)
+
+        if qr_data:
+            cars = qr_data.split('\n')
+            for car in cars:
+                if car:  # 빈 문자열이 아닌 경우에만 처리
+                    location = warehouse.store_item(car)
+                    if location:
+                        print(f"{car}가 {location}에 저장되었습니다.")
+                    else:
+                        print(f"{car}를 저장할 공간이 없습니다.")
+        else:
+            print("QR 코드를 읽을 수 없습니다.")
+
+        time.sleep(2)  # 2초 대기
 
 if __name__ == "__main__":
     main_loop()
