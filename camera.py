@@ -2,6 +2,7 @@ import subprocess
 from PIL import Image
 from pyzbar.pyzbar import decode
 import cv2
+import time
 
 class Warehouse:
     def __init__(self):
