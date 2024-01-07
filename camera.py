@@ -27,9 +27,15 @@ def read_qr_code(cap):
         ret, frame = cap.read()
         if not ret:
             continue
+
         decoded_objects = decode(frame)
         if decoded_objects:
             return decoded_objects[0].data.decode()
+        
+        # 카메라가 활성화되었음을 표시하는 텍스트 추가
+        cv2.putText(frame, "Camera is active - Press ESC to exit", (10, 30), 
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+
         cv2.imshow('QR Code Reader', frame)
         if cv2.waitKey(1) & 0xFF == 27:  # ESC 키를 누르면 종료
             break
