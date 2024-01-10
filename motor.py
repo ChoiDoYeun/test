@@ -3,8 +3,8 @@ import RPi.GPIO as GPIO
 import time
 
 # 모터 드라이버 핀 설정
-X_STEP = 17  # X축 STEP 핀 번호
-X_DIR = 18   # X축 DIR 핀 번호
+X_STEP = 11  # X축 STEP 핀 번호
+X_DIR = 12  # X축 DIR 핀 번호
 Y_STEP = 27  # Y축 STEP 핀 번호
 Y_DIR = 22   # Y축 DIR 핀 번호
 Z_STEP = 23  # Z축 STEP 핀 번호
