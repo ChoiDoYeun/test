@@ -30,7 +30,7 @@ def move_motor(step_pin, dir_pin, steps, direction, delay):
 
 # 모터 움직임 예제
 try:
-    move_motor(X_STEP, X_DIR, 400, True, 0.005)  # X축으로 200 스텝
+    move_motor(X_STEP, X_DIR, 200, True, 0.005)  # X축으로 200 스텝
     move_motor(Y_STEP, Y_DIR, 200, True, 0.005)  # Y축으로 200 스텝
     move_motor(Z_STEP, Z_DIR, 200, True, 0.005)  # Z축으로 200 스텝
 finally:
