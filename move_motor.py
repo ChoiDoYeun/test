@@ -42,7 +42,8 @@ def calculate_steps_and_direction(current_pos, target_pos):
 
 try:
     while True:
-        # 사용자로부터 X, Y, Z축의 목표 위치 입력 받기
+        # 사용자로부터 X, Y, Z축의 목표 위치 입력 받기 
+        # 이후 메인에서 qr코드의 위치값으로 대체
         target_x = float(input("target X : "))
         target_y = float(input("target Y : "))
         target_z = float(input("target Z : "))
@@ -64,11 +65,15 @@ try:
         move_motor(Z_STEP, Z_DIR, steps, direction) # Z축 모터 동작
         current_z = target_z  # 현재 Z 위치 업데이트
 
+        # 현재위치 출력
+        print("finish move to target position")
+        print("current position: X = {}, Y = {}, Z = {}".format(current_x, current_y, current_z))
+        
         # 다음 명령을 받기 전에 짧은 시간 대기
         time.sleep(0.5)
 
 except KeyboardInterrupt:
-    print("Before finish, Move to original")
+    print("Before finish, should move to original. plz wait")
     # 현재 위치에서 (0,0,0)으로 이동
     steps, direction = calculate_steps_and_direction(current_x, 0)
     move_motor(X_STEP, X_DIR, steps, direction)
