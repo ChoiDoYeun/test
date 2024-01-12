@@ -3,7 +3,7 @@ import tkinter as tk
 from warehouse import Warehouse
 
 
-def create_gui(warehouse):
+def create_gui(warehouse_data):
     root = tk.Tk()
     root.title("Warehouse Management System")
 
