@@ -3,25 +3,8 @@ import subprocess
 from PIL import Image
 from pyzbar.pyzbar import decode
 import time
+from warehouse import Warehouse
 
-class Warehouse:
-    def __init__(self):
-        # 창고 구조 초기화
-        self.storage = {f'{building}{floor}{room}': None for building in 'ABCD' for floor in range(1, 5) for room in range(1, 3)}
-
-    def load_existing_items(self, existing_items):
-        # 미리 저장된 물품 로드
-        for location, item in existing_items.items():
-            if location in self.storage:
-                self.storage[location] = item
-
-    def store_item(self, item):
-        # 물품을 저장할 위치 찾기
-        for location in self.storage:
-            if not self.storage[location]:
-                self.storage[location] = item
-                return location
-        return None
 
 def capture_image(image_path='captured_image.jpg'):
     try:
