@@ -1,24 +1,7 @@
 #gui.py
 import tkinter as tk
+from warehouse import Warehouse
 
-class Warehouse:
-    def __init__(self):
-        # 창고 구조 초기화
-        self.storage = {f'{building}{floor}{room}': '' for building in 'ABCD' for floor in range(1, 4) for room in range(1, 3)}
-
-    def load_existing_items(self, existing_items):
-        # 미리 저장된 물품 로드
-        for location, item in existing_items.items():
-            if location in self.storage:
-                self.storage[location] = item
-
-    def store_item(self, item):
-        # 물품을 저장할 위치 찾기
-        for location in self.storage:
-            if not self.storage[location]:
-                self.storage[location] = item
-                return location
-        return None
 
 def create_gui(warehouse):
     root = tk.Tk()
