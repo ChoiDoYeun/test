@@ -1,5 +1,5 @@
 # main_test.py
-import camera
+import camera_gui
 import gui
 import tkinter as tk
 
