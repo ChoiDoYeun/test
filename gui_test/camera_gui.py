@@ -45,4 +45,4 @@ def process_data():
     return warehouse.storage
 
 if __name__ == "__main__":
-    main_loop()
+    main_loop() #process_data바꿔야 오류없을것으로 예상
