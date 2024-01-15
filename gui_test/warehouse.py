@@ -13,4 +13,20 @@ class Warehouse:
             if not self.storage[location]:
                 self.storage[location] = item
                 return location
-        return None
+
+    def calculate_coordinates(self, location):
+        building = location[0]
+        floor = int(location[1])
+        room = int(location[2])
+
+        # X coordinate calculation
+        x = 100 if building in ['A', 'C'] else 250  # Start at 100 for A and C, 250 for B and D
+        x += (room - 1) * 50  # Increase X by 50 for each room
+
+        # Y coordinate calculation based on floor number
+        y = 50 + (floor - 1) * 50
+
+        # Z coordinate calculation
+        z = 80 if building in ['A', 'B'] else 230  # 80 for A and B, 230 for C and D
+
+        return x, y, z
