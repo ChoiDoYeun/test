@@ -2,7 +2,7 @@
 import tkinter as tk
 from warehouse import Warehouse
 
-
+# gui 생성
 def create_gui(warehouse_data):
     root = tk.Tk()
     root.title("Warehouse Management System")
@@ -22,6 +22,7 @@ def create_gui(warehouse_data):
                 label.grid(row=3-floor, column=room-1, padx=5, pady=5)
         label = tk.Label(frame, text=building, font=("Arial", 16), width=5, height=2)
         label.grid(row=3, column=0, columnspan=2, pady=5)
+        
 # 원하는 영역 선택 섹션
     choose_frame = tk.LabelFrame(root, text="CHOOSE WHAT U WANNA PICK AREA")
     choose_frame.grid(row=0, column=1, padx=10, pady=10)
