@@ -14,6 +14,7 @@ class Warehouse:
                 self.storage[location] = item
                 return location
 
+    # location의 좌표계산 -> target_pos으로 move_motor.py에서 사용될것
     def calculate_coordinates(self, location):
         building = location[0]
         floor = int(location[1])
