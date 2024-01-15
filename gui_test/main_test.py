@@ -1,15 +1,11 @@
 import time
+import threading
 from warehouse import Warehouse
 from camera_gui import capture_image, read_qr_code
 from gui import create_gui
 
-def main():
-    warehouse = Warehouse()
-    existing_items = {'A12': '차량1', 'A21': '차량2', 'A31': '차량3'}
-    warehouse.load_existing_items(existing_items)
-
+def process_qr_code(warehouse):
     qr_code_image_path = 'captured_image.jpg'
-
     while True:
         capture_image(qr_code_image_path)
         qr_data = read_qr_code(qr_code_image_path)
@@ -28,7 +24,16 @@ def main():
 
         time.sleep(2)  # Adjust the delay as needed
 
-        create_gui(warehouse)
+def main():
+    warehouse = Warehouse()
+    existing_items = {'A12': '차량1', 'A21': '차량2', 'A31': '차량3'}
+    warehouse.load_existing_items(existing_items)
+
+    qr_thread = threading.Thread(target=process_qr_code, args=(warehouse,))
+    qr_thread.daemon = True  # Daemon thread로 설정하여 메인 스레드 종료 시 함께 종료되도록 설정
+    qr_thread.start()
+
+    create_gui(warehouse)  # 메인 스레드는 GUI 처리에 집중
 
 if __name__ == "__main__":
     main()
