@@ -1,3 +1,4 @@
+# camera_gui.py
 import subprocess
 from PIL import Image
 from pyzbar.pyzbar import decode
