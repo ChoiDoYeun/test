@@ -1,6 +1,7 @@
 import time
 from camera_gui import capture_image, read_qr_code
 
+# qr코드 정보처리
 def process_qr_code(warehouse):
     qr_code_image_path = 'captured_image.jpg'
     while True:
@@ -18,5 +19,6 @@ def process_qr_code(warehouse):
                         print(f"{car}를 저장할 공간이 없습니다.")
         else:
             print("QR 코드를 읽을 수 없습니다.")
-
-        time.sleep(2)  # Adjust the delay as needed
+        
+        # 2초마다 동작
+        time.sleep(2)
