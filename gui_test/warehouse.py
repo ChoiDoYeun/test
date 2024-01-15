@@ -21,13 +21,13 @@ class Warehouse:
         room = int(location[2])
 
         # X좌표 계산 : A&C는 100 ,B&D는 250
-        x = 100 if building in ['A', 'C'] else 250  # Start at 100 for A and C, 250 for B and D
-        x += (room - 1) * 50  # Increase X by 50 for each room
+        x = 100 if building in ['A', 'C'] else 250
+        x += (room - 1) * 50
 
         # Y 좌표 계산 : 1층 증가할때마다 +50
         y = 50 + (floor - 1) * 50
 
         # Z 좌표 계산 : A&B는 80,C&D는 230
-        z = 80 if building in ['A', 'B'] else 230  # 80 for A and B, 230 for C and D
+        z = 80 if building in ['A', 'B'] else 230 
 
         return x, y, z
