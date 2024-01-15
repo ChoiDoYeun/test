@@ -17,7 +17,7 @@ def create_gui(warehouse_data):
         for floor in reversed(range(1, 4)):
             for room in range(1, 3):
                 location = f'{building}{floor}{room}'
-                label_text = storage_data.get(location, ' ')
+                label_text = warehouse_data.storage.get(location, ' ')
                 label = tk.Label(frame, text=label_text, borderwidth=1, relief="solid", width=10, height=5)
                 label.grid(row=3-floor, column=room-1, padx=5, pady=5)
         label = tk.Label(frame, text=building, font=("Arial", 16), width=5, height=2)
