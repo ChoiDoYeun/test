@@ -1,3 +1,4 @@
+#qr_processor.py
 import time
 from camera_gui import capture_image, read_qr_code
 
