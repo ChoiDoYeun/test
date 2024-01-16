@@ -15,12 +15,14 @@ def main():
 
     # 미리 저장된 차량 정보 로딩
     warehouse.load_existing_items(existing_items)
+    
+    # QR 코드 처리 함수 직접 호출
+    process_qr_code(warehouse)
 
     # gui 생성
     create_gui(warehouse)
 
-    # QR 코드 처리 함수 직접 호출
-    process_qr_code(warehouse)
+
 
 if __name__ == "__main__":
     main()
