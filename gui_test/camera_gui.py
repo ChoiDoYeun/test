@@ -5,7 +5,7 @@ from pyzbar.pyzbar import decode
 
 # 카메라로 캡처
 def capture_image(image_path='captured_image.jpg'):
-    subprocess.run(['libcamera-still', '-o', image_path])
+    subprocess.run(['libcamera-still','-n', '-o', image_path])
     print("camera ready")
 
 # qr코드 리더
