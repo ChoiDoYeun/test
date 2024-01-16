@@ -5,7 +5,9 @@ from warehouse import Warehouse
 # gui 생성
 def create_gui(warehouse_data):
     root = tk.Tk()
+    root.geometry("800x480")
     root.title("Warehouse Management System")
+    
 
     # 현재 창고 위치 섹션
     warehouse_frame = tk.LabelFrame(root, text="CURRENT WAREHOUSE POSITION")
