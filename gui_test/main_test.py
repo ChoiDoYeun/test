@@ -6,6 +6,7 @@ from qr_processor import process_qr_code
 
 # main
 def main():
+    print("start")
     # 객체 생성
     warehouse = Warehouse()
     
