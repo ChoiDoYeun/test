@@ -5,7 +5,7 @@ from warehouse import Warehouse
 # gui 생성
 def create_gui(warehouse_data):
     root = tk.Tk()
-    root.geometry("800x480")
+    #root.geometry("800x480")
     root.title("Warehouse Management System")
     
 
