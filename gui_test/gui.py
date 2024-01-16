@@ -7,6 +7,9 @@ def create_gui(warehouse_data):
     root = tk.Tk()
     root.title("Warehouse Management System")
     
+    # 윈도우 해상도 설정
+    root.geometry("800x480")
+    
 
     # 현재 창고 위치 섹션
     warehouse_frame = tk.LabelFrame(root, text="CURRENT WAREHOUSE POSITION")
