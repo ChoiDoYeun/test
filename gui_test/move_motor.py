@@ -10,7 +10,7 @@ Z_STEP = 23  # Z축 STEP 핀 번호
 Z_DIR = 24   # Z축 DIR 핀 번호
 
 # 스텝 설정
-STEPS_PER_MM = 400  # 1mm당 필요한 스텝 수
+STEPS_PER_MM = 200  # 1mm당 필요한 스텝 수
 
 # GPIO 설정
 GPIO.setmode(GPIO.BCM)
