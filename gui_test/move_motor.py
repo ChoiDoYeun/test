@@ -45,9 +45,9 @@ try:
         # 사용자로부터 X, Y, Z축의 목표 위치 입력 받기 
         # 이후 메인에서 qr코드의 위치값으로 대체
         # target_x, target_y, target_z = warehouse.calculate_coordinates(location)으로 변경? -> import warehouse 해야함
-        target_x = float(input("target X : "))
-        target_y = float(input("target Y : "))
-        target_z = float(input("target Z : "))
+        target_x = int(input("target X : "))
+        target_y = int(input("target Y : "))
+        target_z = int(input("target Z : "))
 
         # X축 이동
         steps, direction = calculate_steps_and_direction(current_x, target_x) # X축 dir방향, step수 계산
