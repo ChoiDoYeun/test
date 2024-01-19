@@ -1,4 +1,4 @@
-from motor.init import initialize
+from motor.__init__ import initialize
 from motor.move_motor import move_motor
 from motor.calculate_steps_and_direction import calculate_steps_and_direction
 from motor.cleanup import cleanup
