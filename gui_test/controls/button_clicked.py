@@ -15,6 +15,5 @@ def button_clicked(button_text):
     if warehouse is not None:
         x, y, z = warehouse.calculate_coordinates(button_text)
         global_coordinates.update({'x': x, 'y': y, 'z': z})
-        move_position(x, y, z)
     else:
         print("Warehouse instance is not set.")
