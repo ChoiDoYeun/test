@@ -1,6 +1,10 @@
 #gui.py
 import tkinter as tk
 from warehouse import Warehouse
+from controls.button_clicked import button_clicked
+from controls.toggle_mode import toggle_mode
+from controls.run import run
+from controls.stop import stop
 
 def create_gui(warehouse):
     root = tk.Tk()
@@ -24,10 +28,6 @@ def create_gui(warehouse):
 # 원하는 영역 선택 섹션
     choose_frame = tk.LabelFrame(root, text="CHOOSE WHAT U WANNA PICK AREA")
     choose_frame.grid(row=0, column=1, padx=10, pady=10)
-    
-    # 추가
-    def button_clicked(button_text):
-        print("Selected area:", button_text)
 
     button_texts = [
         'A11', 'A12', 'B11', 'B12',
@@ -52,13 +52,6 @@ def create_gui(warehouse):
     input_mode = {'state': False}
     output_mode = {'state': False}
 
-    # 추가
-    def toggle_mode(button, mode, mode_name):
-        mode['state'] = not mode['state']
-        new_state = "ON" if mode['state'] else "OFF"
-        button.config(bg='green' if mode['state'] else 'SystemButtonFace')
-        print(f"{mode_name} mode is now {new_state}")
-
     input_button = tk.Button(mode_frame, text="INPUT", width=10, height=5, command=lambda: toggle_mode(input_button, input_mode, "INPUT"))
     input_button.pack(padx=5, pady=5)
 
@@ -69,12 +62,6 @@ def create_gui(warehouse):
     # 실행 및 중지 버튼 섹션
     control_frame = tk.Frame(root)
     control_frame.grid(row=1, column=1, padx=10, pady=10)
-
-    def run():
-        print("Run")
-
-    def stop():
-        print("Stop")
 
     tk.Button(control_frame, text="RUN", bg="green", command=run, width=10, height=5).pack(side=tk.LEFT, padx=5, pady=5)
     tk.Button(control_frame, text="STOP", bg="red", command=stop, width=10, height=5).pack(side=tk.RIGHT, padx=5, pady=5)
