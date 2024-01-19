@@ -4,6 +4,8 @@ from warehouse import Warehouse
 from gui import create_gui
 from qr_processor import process_qr_code
 from move_position import move_position
+from controls.button_clicked import set_warehouse_instance
+
 
 # main
 def main():
@@ -21,12 +23,12 @@ def main():
     qr_thread = threading.Thread(target=process_qr_code, args=(warehouse,))
     qr_thread.daemon = True
     qr_thread.start()
+
+    set_warehouse_instance(warehouse)
+
     
     # gui 생성
     create_gui(warehouse)
-
-    # 모터동작
-    move_position(target_x, target_y, target_z)
 
 if __name__ == "__main__":
     main()
