@@ -30,7 +30,7 @@ def main():
     # gui 생성
     create_gui(warehouse)
 
-    move_position(x, y, z)
+    move_position(x = {global_coordinates['x']}, y={global_coordinates['y']}, z={global_coordinates['z']})
 
 
 if __name__ == "__main__":
