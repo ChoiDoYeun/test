@@ -30,5 +30,8 @@ def main():
     # gui 생성
     create_gui(warehouse)
 
+    move_position(x, y, z)
+
+
 if __name__ == "__main__":
     main()
