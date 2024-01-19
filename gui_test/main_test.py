@@ -6,8 +6,6 @@ from qr_processor import process_qr_code
 from move_position import move_position
 from controls.button_clicked import set_warehouse_instance,global_coordinates
 
-
-
 # main
 def main():
     print("start")
@@ -31,7 +29,10 @@ def main():
     # gui 생성
     create_gui(warehouse)
 
-    move_position(global_coordinates['x'],global_coordinates['y'], global_coordinates['z'])
+    x = global_coordinates['x']
+    y = global_coordinates['y']
+    z = global_coordinates['z']
+    move_position(x,y,z)
 
 
 if __name__ == "__main__":
