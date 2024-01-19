@@ -3,6 +3,7 @@ import threading
 from warehouse import Warehouse
 from gui import create_gui
 from qr_processor import process_qr_code
+from move_position import move_position
 
 # main
 def main():
@@ -23,6 +24,9 @@ def main():
     
     # gui 생성
     create_gui(warehouse)
+
+    # 모터동작
+    move_position(target_x, target_y, target_z)
 
 if __name__ == "__main__":
     main()
