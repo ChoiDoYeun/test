@@ -4,7 +4,8 @@ from warehouse import Warehouse
 from gui import create_gui
 from qr_processor import process_qr_code
 from move_position import move_position
-from controls.button_clicked import set_warehouse_instance
+from controls.button_clicked import set_warehouse_instance,global_coordinates
+
 
 
 # main
