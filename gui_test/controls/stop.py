@@ -1,0 +1,2 @@
+def stop():
+  print("Stop")
