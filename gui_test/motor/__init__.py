@@ -17,6 +17,7 @@ def initialize():
   GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP, Z_DIR], GPIO.OUT)
   
   # 현재위치 초기화
+  global current_x, current_y, current_z
   current_x = 0
   current_y = 0
   current_z = 0
