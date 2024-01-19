@@ -1,2 +1,0 @@
-def stop():
-  print("Stop")
