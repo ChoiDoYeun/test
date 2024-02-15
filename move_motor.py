@@ -10,7 +10,7 @@ Z_STEP = 23  # Z축 STEP 핀 번호
 Z_DIR = 24   # Z축 DIR 핀 번호
 
 # 스텝 설정
-STEPS_PER_MM = 100  # 1mm당 필요한 스텝 수
+STEPS_PER_MM = 200  # 1mm당 필요한 스텝 수
 
 # GPIO 설정
 GPIO.setmode(GPIO.BCM)
@@ -45,7 +45,7 @@ try:
         # 사용자로부터 X, Y, Z축의 목표 위치 입력 받기 
         # 이후 메인에서 qr코드의 위치값으로 대체
         # target_x, target_y, target_z = warehouse.calculate_coordinates(location)으로 변경? -> import warehouse 해야함
-        target_x = int(input("target X : "))
+        target_x = float(input("target X : "))
         target_y = int(input("target Y : "))
         target_z = int(input("target Z : "))
 
