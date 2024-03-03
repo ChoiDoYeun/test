@@ -36,7 +36,7 @@ def process_qr_code_input(warehouse):
 def process_qr_code_output(warehouse):
     while True:
         try:
-            qr_code_image_path = 'output_qrcode.PNG'
+            qr_code_image_path = 'output_qrcode.png'
             qr_data = read_qr_code(qr_code_image_path)
             if qr_data:
                 cars = qr_data.split('\n')
