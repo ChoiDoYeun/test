@@ -12,7 +12,7 @@ class StopThreadException(Exception):
 def process_qr_code_input(warehouse):
     while True:
         try:
-            capture_image(qr_code_image_path)
+            #capture_image(qr_code_image_path)
             qr_code_image_path = '세단_QR_Code.PNG'
             qr_data = read_qr_code(qr_code_image_path)
             if qr_data:
