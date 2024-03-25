@@ -28,9 +28,9 @@ def move_motor(step_pin, dir_pin, steps, direction):
     GPIO.output(dir_pin, direction)
     for _ in range(steps):
         GPIO.output(step_pin, GPIO.HIGH)
-        time.sleep(0.002)  # 1ms 대기
+        time.sleep(0.001)  # 1ms 대기
         GPIO.output(step_pin, GPIO.LOW)
-        time.sleep(0.002)
+        time.sleep(0.001)
       
 # dir, step 계산 함수
 def calculate_steps_and_direction(current_pos, target_pos):
