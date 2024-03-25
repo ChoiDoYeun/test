@@ -65,7 +65,7 @@ try:
 
         # Z축 이동
         steps, direction = calculate_steps_and_direction(current_z, target_z) # Z축 dir방향, step수 계산
-        move_motor(Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
+        # move_motor(Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
         move_motor(Z_STEP_1, Z_DIR_1, steps, direction) # Z축 모터 동작
         
         current_z = target_z  # 현재 Z 위치 업데이트
