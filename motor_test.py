@@ -6,15 +6,17 @@ X_STEP = 17  # X축 STEP 핀 번호
 X_DIR = 18   # X축 DIR 핀 번호
 Y_STEP = 27  # Y축 STEP 핀 번호
 Y_DIR = 22   # Y축 DIR 핀 번호
-Z_STEP = 23  # Z축 STEP 핀 번호
-Z_DIR = 24   # Z축 DIR 핀 번호
+Z_STEP_1 = 23  # Z1축 STEP 핀 번호
+Z_DIR_1 = 24   # Z1축 DIR 핀 번호
+Z_STEP_2 = 25    # Z2축 STEP 핀 번호
+Z_DIR_2 = 28    # Z2축 DIR 핀 번호
 
 # 스텝 설정
 STEPS_PER_MM = 200  # 1mm당 필요한 스텝 수
 
 # GPIO 설정
 GPIO.setmode(GPIO.BCM)
-GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP, Z_DIR], GPIO.OUT)
+GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR], GPIO.OUT)
 
 # 현재위치 초기화
 current_x = 0
@@ -63,7 +65,8 @@ try:
 
         # Z축 이동
         steps, direction = calculate_steps_and_direction(current_z, target_z) # Z축 dir방향, step수 계산
-        move_motor(Z_STEP, Z_DIR, steps, direction) # Z축 모터 동작
+        move_motor(Z_STEP_1, Z_DIR_1, steps, direction) # Z축 모터 동작
+        move_motor(Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
         current_z = target_z  # 현재 Z 위치 업데이트
 
         # 현재위치 출력
@@ -85,7 +88,8 @@ except KeyboardInterrupt: #추후 stop버튼 푸쉬시 동작하도록 변경해
     time.sleep(steps * 0.002)
 
     steps, direction = calculate_steps_and_direction(current_z, 0)
-    move_motor(Z_STEP, Z_DIR, steps, direction)
+    move_motor(Z_STEP_1, Z_DIR_1, steps, direction)
+    move_motor(Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
     time.sleep(steps * 0.002)
     print("Arrived original, program finish")
 finally:
