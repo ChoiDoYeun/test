@@ -19,7 +19,7 @@ def initialize():
     Z_STEP_1 = 23
     Z_DIR_1 = 24
     Z_STEP_2 = 25
-    Z_DIR_2 = 28
+    Z_DIR_2 = 8
     A_STEP = 10  # A모터 핀설정
     A_DIR = 9
     # GPIO 설정
