@@ -16,11 +16,13 @@ def initialize():
     X_DIR = 18
     Y_STEP = 27
     Y_DIR = 22
-    Z_STEP = 23
-    Z_DIR = 24
+    Z_STEP_1 = 23
+    Z_DIR_1 = 24
+    Z_STEP_2 = 25
+    Z_DIR_2 = 28
     A_STEP = 10  # A모터 핀설정
     A_DIR = 9
     # GPIO 설정
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP, Z_DIR,A_STEP,A_DIR], GPIO.OUT)
-    return X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP, Z_DIR,A_STEP,A_DIR
+    GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR], GPIO.OUT)
+    return X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR
