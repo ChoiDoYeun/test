@@ -8,8 +8,8 @@ Y_STEP = 27  # Y축 STEP 핀 번호
 Y_DIR = 22   # Y축 DIR 핀 번호
 Z_STEP_1 = 23  # Z1축 STEP 핀 번호
 Z_DIR_1 = 24   # Z1축 DIR 핀 번호
-Z_STEP_2 = 25    # Z2축 STEP 핀 번호
-Z_DIR_2 = 8    # Z2축 DIR 핀 번호
+Z_STEP_2 = 10    # Z2축 STEP 핀 번호
+Z_DIR_2 = 9    # Z2축 DIR 핀 번호
 
 # 스텝 설정
 STEPS_PER_MM = 200  # 1mm당 필요한 스텝 수
