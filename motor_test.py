@@ -28,9 +28,9 @@ def move_motor(step_pin, dir_pin, steps, direction):
     GPIO.output(dir_pin, direction)
     for _ in range(steps):
         GPIO.output(step_pin, GPIO.HIGH)
-        time.sleep(0.0001)  # 1ms 대기
+        time.sleep(0.0005)  # 1ms 대기
         GPIO.output(step_pin, GPIO.LOW)
-        time.sleep(0.0001)
+        time.sleep(0.0005)
 
 def move_Z_motor(step1_pin, dir1_pin, step2_pin, dir2_pin, steps, direction):
     GPIO.output(dir1_pin, direction)
@@ -39,10 +39,10 @@ def move_Z_motor(step1_pin, dir1_pin, step2_pin, dir2_pin, steps, direction):
     for _ in range(steps):
         GPIO.output(step1_pin, GPIO.HIGH)
         GPIO.output(step2_pin, GPIO.HIGH)
-        time.sleep(0.0001)  # 1ms 대기
+        time.sleep(0.0005)  # 1ms 대기
         GPIO.output(step1_pin, GPIO.LOW)
         GPIO.output(step2_pin, GPIO.LOW)
-        time.sleep(0.0001)
+        time.sleep(0.0005)
       
 # dir, step 계산 함수
 def calculate_steps_and_direction(current_pos, target_pos):
@@ -66,13 +66,13 @@ try:
         # X축 이동
         steps, direction = calculate_steps_and_direction(current_x, target_x) # X축 dir방향, step수 계산
         move_motor(X_STEP, X_DIR, steps, direction) # X축 모터 동작
-        time.sleep(steps * 0.002)  # 대기 시간
+        time.sleep(0.002)  # 대기 시간
         current_x = target_x  # 현재 X 위치 업데이트
 
         # Y축 이동
         steps, direction = calculate_steps_and_direction(current_y, target_y) # Y축 dir방향, step수 계산
         move_motor(Y_STEP, Y_DIR, steps, direction) # Y축 모터 동작
-        time.sleep(steps * 0.002)  # 대기 시간
+         time.sleep(0.002)  # 대기 시간
         current_y = target_y  # 현재 Y 위치 업데이트
 
         # Z축 이동
@@ -93,16 +93,15 @@ except KeyboardInterrupt: #추후 stop버튼 푸쉬시 동작하도록 변경해
     # 현재 위치에서 (0,0,0)으로 이동
     steps, direction = calculate_steps_and_direction(current_x, 0)
     move_motor(X_STEP, X_DIR, steps, direction)
-    time.sleep(steps * 0.002)
+     time.sleep(0.002)  # 대기 시간
 
     steps, direction = calculate_steps_and_direction(current_y, 0)
     move_motor(Y_STEP, Y_DIR, steps, direction)
-    time.sleep(steps * 0.002)
+     time.sleep(0.002)  # 대기 시간
 
     steps, direction = calculate_steps_and_direction(current_z, 0)
-    move_motor(Z_STEP_1, Z_DIR_1, steps, direction)
-    move_motor(Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
-    time.sleep(steps * 0.002)
+    move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
+     time.sleep(0.002)  # 대기 시간
     print("Arrived original, program finish")
 finally:
     GPIO.cleanup()
