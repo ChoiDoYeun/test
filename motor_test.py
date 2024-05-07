@@ -63,6 +63,12 @@ try:
         target_y = int(input("target Y : "))
         target_z = int(input("target Z : "))
 
+        # Z축 이동
+        steps, direction = calculate_steps_and_direction(current_z, target_z) # Z축 dir방향, step수 계산
+        move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
+        time.sleep(0.002)  # 대기 시간
+        current_z = target_z  # 현재 Z 위치 업데이트
+
         # X축 이동
         steps, direction = calculate_steps_and_direction(current_x, target_x) # X축 dir방향, step수 계산
         move_motor(X_STEP, X_DIR, steps, direction) # X축 모터 동작
@@ -72,14 +78,9 @@ try:
         # Y축 이동
         steps, direction = calculate_steps_and_direction(current_y, target_y) # Y축 dir방향, step수 계산
         move_motor(Y_STEP, Y_DIR, steps, direction) # Y축 모터 동작
-        time.sleep(0.002)  # 대기 시간
         current_y = target_y  # 현재 Y 위치 업데이트
 
-        # Z축 이동
-        steps, direction = calculate_steps_and_direction(current_z, target_z) # Z축 dir방향, step수 계산
-        move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
-        
-        current_z = target_z  # 현재 Z 위치 업데이트
+
 
         # 현재위치 출력
         print("finish move to target position")
