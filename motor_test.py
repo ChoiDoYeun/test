@@ -56,10 +56,6 @@ def calculate_steps_and_direction(current_pos, target_pos):
 
 try:
     while True:
-    # 현재위치 초기화
-        current_x = 0
-        current_y = 0
-        current_z = 0
         # 사용자로부터 X, Y, Z축의 목표 위치 입력 받기 
         # 이후 메인에서 qr코드의 위치값으로 대체
         # target_x, target_y, target_z = warehouse.calculate_coordinates(location)으로 변경? -> import warehouse 해야함
@@ -82,6 +78,7 @@ try:
         # Y축 이동
         steps, direction = calculate_steps_and_direction(current_y, target_y) # Y축 dir방향, step수 계산
         move_motor(Y_STEP, Y_DIR, steps, direction) # Y축 모터 동작
+        time.sleep(0.002)  # 대기 시간
         current_y = target_y  # 현재 Y 위치 업데이트
 
 
