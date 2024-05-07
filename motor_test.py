@@ -56,6 +56,10 @@ def calculate_steps_and_direction(current_pos, target_pos):
 
 try:
     while True:
+    # 현재위치 초기화
+        current_x = 0
+        current_y = 0
+        current_z = 0
         # 사용자로부터 X, Y, Z축의 목표 위치 입력 받기 
         # 이후 메인에서 qr코드의 위치값으로 대체
         # target_x, target_y, target_z = warehouse.calculate_coordinates(location)으로 변경? -> import warehouse 해야함
