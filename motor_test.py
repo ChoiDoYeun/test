@@ -77,7 +77,6 @@ try:
 
         # Y축 이동
         steps, direction = calculate_steps_and_direction(current_y, target_y) # Y축 dir방향, step수 계산
-        y_direction = - direction
         move_motor(Y_STEP, Y_DIR, steps, direction) # Y축 모터 동작
         current_y = target_y  # 현재 Y 위치 업데이트
 
