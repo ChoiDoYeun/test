@@ -5,7 +5,7 @@ from motor.config import initialize
 import RPi.GPIO as GPIO
 
 def move_item_high():
-    X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP, Z_DIR, A_STEP,A_DIR  = initialize()
+    X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR  = initialize()
     steps = 500 # 예시
     direction = GPIO.HIGH # 예시
     print("A모터 동작중")
@@ -13,7 +13,7 @@ def move_item_high():
     print("A모터 동작완료")
     
 def move_item_low():
-    X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP, Z_DIR, A_STEP,A_DIR  = initialize()
+    X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR  = initialize()
     steps = 500 # 예시
     direction = GPIO.LOW # 예시
     print("A모터 동작중")
