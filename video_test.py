@@ -32,7 +32,7 @@ def read_qr_code(image_path):
     return decoded_objects[0].data.decode() if decoded_objects else ""
 
 # 카메라 설정
-cap = cv2.VideoCapture(1)  # 0은 기본 카메라
+cap = cv2.VideoCapture(0)  # 0은 기본 카메라
 
 try:
     while True:
