@@ -1,5 +1,6 @@
 #gui.py
 import tkinter as tk
+from tkinter import ttk
 from controls.button_clicked import button_clicked
 from controls.run import run
 from controls.stop import stop
@@ -24,7 +25,7 @@ def create_gui(warehouse, callback=None):
     canvas.configure(yscrollcommand=scrollbar.set)
     canvas.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
 
-    scrollable_frame = tk.Frame(canvas)
+    scrollable_frame = ttk.Frame(canvas)
     canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
 
     # 기존 GUI 구성 코드 수정 (scrollable_frame을 기반으로 위젯 배치)
