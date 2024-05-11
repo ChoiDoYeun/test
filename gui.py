@@ -24,7 +24,7 @@ def create_gui(warehouse, callback=None):
     canvas.configure(yscrollcommand=scrollbar.set)
     canvas.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
 
-    scrollable_frame = ttk.Frame(canvas)
+    scrollable_frame = tk.Frame(canvas)
     canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
 
     # 기존 GUI 구성 코드 수정 (scrollable_frame을 기반으로 위젯 배치)
