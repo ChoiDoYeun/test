@@ -5,7 +5,7 @@ import numpy as np
 from pyzbar.pyzbar import decode
 
 # 경로
-base_path = "/home/dodo/"
+base_path = "/home/dodo/test/"
 img_path = base_path + 'captured_car.jpg'
 output_path = base_path + 'resize_test.png'
 cropped_img_path = base_path + 'cropped_test.png'
