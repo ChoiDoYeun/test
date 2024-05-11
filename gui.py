@@ -9,7 +9,7 @@ from controls.update_labels import update_warehouse_labels
 def create_gui(warehouse, callback=None):
     root = tk.Tk()
     root.title("Warehouse Management System")
-    root.geometry("1024x768")  # 해상도
+    root.geometry("800x480")  # 해상도
 
     # 창고 위치 레이블 관리를 위한 딕셔너리
     warehouse_labels = {}
