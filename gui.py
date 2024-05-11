@@ -1,6 +1,5 @@
 #gui.py
 import tkinter as tk
-from tkinter import ttk
 from controls.button_clicked import button_clicked
 from controls.run import run
 from controls.stop import stop
@@ -15,21 +14,8 @@ def create_gui(warehouse, callback=None):
     # 창고 위치 레이블 관리를 위한 딕셔너리
     warehouse_labels = {}
 
-   # 스크롤 가능한 창 생성
-    main_frame = ttk.Frame(root)
-    main_frame.pack(fill=tk.BOTH, expand=True)
-    canvas = tk.Canvas(main_frame)
-    canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-    scrollbar = ttk.Scrollbar(main_frame, orient=tk.VERTICAL, command=canvas.yview)
-    scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-    canvas.configure(yscrollcommand=scrollbar.set)
-    canvas.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
-
-    scrollable_frame = ttk.Frame(canvas)
-    canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
-
-    # 기존 GUI 구성 코드 수정 (scrollable_frame을 기반으로 위젯 배치)
-    warehouse_frame = tk.LabelFrame(scrollable_frame, text="CURRENT WAREHOUSE POSITION")
+    # 현재 창고 위치 섹션
+    warehouse_frame = tk.LabelFrame(root, text="CURRENT WAREHOUSE POSITION")
     warehouse_frame.grid(row=0, column=0, padx=10, pady=10)
 
     for i, building in enumerate(['A', 'B', 'C', 'D']):
