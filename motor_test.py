@@ -95,7 +95,7 @@ try:
         current_y = target_y  # 현재 Y 위치 업데이트
         
         steps, direction = calculate_steps_and_direction(current_a, target_a) # Y축 dir방향, step수 계산
-        move_motor(A_STEP, A_DIR, steps, direction) # Y축 모터 동작
+        move_A_motor(A_STEP, A_DIR, steps, direction) # Y축 모터 동작
         time.sleep(0.002)  # 대기 시간
         current_a = target_a  # 현재 Y 위치 업데이트
 
