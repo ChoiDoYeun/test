@@ -64,6 +64,7 @@ try:
         target_x = int(input("target X : "))
         target_y = int(input("target Y : "))
         target_z = int(input("target Z : "))
+        target_a = int(input("target A : "))
 
         # Z축 이동
         steps, direction = calculate_steps_and_direction(current_z, target_z) # Z축 dir방향, step수 계산
@@ -84,8 +85,9 @@ try:
         time.sleep(0.002)  # 대기 시간
         current_y = target_y  # 현재 Y 위치 업데이트
         
-        move_motor(A_STEP, A_DIR, int 20, GPIO.HIGH)
-        move_motor(A_STEP, A_DIR, int 20, GPIO.LOW)
+        move_motor(A_STEP, A_DIR, target_a, GPIO.HIGH)
+        time.sleep(0.002)  # 대기 시간
+        move_motor(A_STEP, A_DIR, target_a, GPIO.LOW)
 
         # 현재위치 출력
         print("finish move to target position")
