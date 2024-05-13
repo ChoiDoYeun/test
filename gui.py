@@ -73,7 +73,7 @@ def create_gui(warehouse, callback=None):
 
     # 실행 및 중지 버튼 섹션
     control_frame = tk.Frame(root)
-    control_frame.grid(row=1, column=0, padx=10, pady=10, sticky='e')
+    control_frame.grid(row=1, column=1, padx=10, pady=10, sticky='e')
 
     tk.Button(control_frame, text="RUN", bg="green", command=lambda: run(warehouse), width=8, height=3).pack(side=tk.LEFT, padx=5, pady=5)
     tk.Button(control_frame, text="STOP", bg="red", command=stop, width=8, height=3).pack(side=tk.RIGHT, padx=5, pady=5)
