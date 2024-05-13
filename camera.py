@@ -57,7 +57,3 @@ def capture_image(output_path):
             output_path = base_path + 'resize_test.png'
             crop_object(results, img_pil, cropped_img_path)
             resize_image(cropped_img_path, output_path)
-    
-            # QR 코드 읽기
-            qr_code = read_qr_code(output_path)
-            print("QR Code:", qr_code)
