@@ -2,21 +2,23 @@ import RPi.GPIO as GPIO
 import time
 
 # 모터 드라이버 핀 설정
-X_STEP = 17  # X축 STEP 핀 번호
-X_DIR = 18   # X축 DIR 핀 번호
-Y_STEP = 27  # Y축 STEP 핀 번호
-Y_DIR = 22   # Y축 DIR 핀 번호
-Z_STEP_1 = 23  # Z1축 STEP 핀 번호
-Z_DIR_1 = 24   # Z1축 DIR 핀 번호
-Z_STEP_2 = 10    # Z2축 STEP 핀 번호
-Z_DIR_2 = 9    # Z2축 DIR 핀 번호
+X_STEP = 17
+X_DIR = 18
+Y_STEP = 27
+Y_DIR = 22
+Z_STEP_1 = 23
+Z_DIR_1 = 24
+Z_STEP_2 = 25
+Z_DIR_2 = 8
+A_STEP = 10  # A모터 핀설정
+A_DIR = 9
 
 # 스텝 설정
 STEPS_PER_MM = 200  # 1mm당 필요한 스텝 수
 
 # GPIO 설정
 GPIO.setmode(GPIO.BCM)
-GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2], GPIO.OUT)
+GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR], GPIO.OUT)
 
 # 현재위치 초기화
 current_x = 0
@@ -81,8 +83,9 @@ try:
         print(direction)
         time.sleep(0.002)  # 대기 시간
         current_y = target_y  # 현재 Y 위치 업데이트
-
-
+        
+        move_motor(A_STEP, A_DIR, 20, GPIO.HIGH)
+        move_motor(A_STEP, A_DIR, 20, GPIO.LOW)
 
         # 현재위치 출력
         print("finish move to target position")
