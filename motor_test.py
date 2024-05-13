@@ -24,6 +24,7 @@ GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_S
 current_x = 0
 current_y = 0
 current_z = 0
+current_a = 0
 
 # 모터 동작 함수
 def move_motor(step_pin, dir_pin, steps, direction):
@@ -85,13 +86,14 @@ try:
         time.sleep(0.002)  # 대기 시간
         current_y = target_y  # 현재 Y 위치 업데이트
         
-        move_motor(A_STEP, A_DIR, target_a, GPIO.HIGH)
+        steps, direction = calculate_steps_and_direction(current_a, target_a) # Y축 dir방향, step수 계산
+        move_motor(A_STEP, A_DIR, steps, direction) # Y축 모터 동작
         time.sleep(0.002)  # 대기 시간
-        move_motor(A_STEP, A_DIR, target_a, GPIO.LOW)
+        current_a = target_a  # 현재 Y 위치 업데이트
 
         # 현재위치 출력
         print("finish move to target position")
-        print("current position: X = {}, Y = {}, Z = {}".format(current_x, current_y, current_z))
+        print("current position: X = {}, Y = {}, Z = {}, A = {}".format(current_x, current_y, current_z,current_a))
         
         # 다음 명령을 받기 전에 짧은 시간 대기
         time.sleep(0.5)
