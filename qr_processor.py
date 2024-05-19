@@ -15,8 +15,7 @@ def process_qr_code_input(warehouse):
             print("qr 코드 감지중")
             qr_code_image_path = '/home/dodo/test/resize_test.png'
             qr_data = capture_image(qr_code_image_path)
-            #qr_data = read_qr_code(qr_code_image_path)
-            print(qr_data)
+            print("qr 코드 감지완료")
             if qr_data:
                 cars = qr_data.split('\n')
                 for car in cars:
@@ -41,8 +40,7 @@ def process_qr_code_output(warehouse):
             print("qr 코드 감지중")
             qr_code_image_path = '/home/dodo/test/resize_test.png'
             qr_data = capture_image(qr_code_image_path)
-            #qr_data = read_qr_code(qr_code_image_path)
-            print(qr_data)
+            print("qr 코드 감지완료")
             if qr_data:
                 cars = qr_data.split('\n')
                 for car in cars:
