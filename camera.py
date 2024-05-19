@@ -44,7 +44,8 @@ def capture_image(output_path):
             ret, frame = cap.read()
             if not ret:
                 break
-    
+            cv2.imshow('Frame', cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR))
+            
             # OpenCV 이미지를 PIL 이미지로 변환
             print("2")
             img_pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
@@ -63,7 +64,7 @@ def capture_image(output_path):
             qr_code = read_qr_code(output_path)
             print("QR Code:", qr_code)
             
-            cv2.imshow('Frame', cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR))
+           
 
     finally:
         cap.release()
