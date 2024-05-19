@@ -1,8 +1,15 @@
+import sys
 import torch
 from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
 from pyzbar.pyzbar import decode
+
+# YOLOv5 모듈 경로 추가
+yolov5_path = "/home/dodo/test/yolov5"
+if yolov5_path not in sys.path:
+    sys.path.append(yolov5_path)
+
 from models.experimental import attempt_load
 from utils.general import non_max_suppression, scale_coords
 from utils.torch_utils import select_device
@@ -13,13 +20,12 @@ img_path = base_path + 'captured_car.jpg'
 output_path = base_path + 'resize_test.png'
 cropped_img_path = base_path + 'cropped_test.png'
 model_path = base_path + 'best.pt'
-yolov5_path = base_path + 'yolov5/'
 
 # 저장된 모델 로드
-device = select_device('cpu')  # or 'cuda' if you have a GPU
+device = select_device('cpu')  # 'cuda' for GPU, 'cpu' for CPU
 model = attempt_load(model_path, map_location=device)  # load FP32 model
 
-# 감지된 객체 크롭 하여 저장
+# 감지된 객체 크롭하여 저장
 def crop_object(results, img_path, output_path):
     if results is not None and len(results.xyxy) > 0 and len(results.xyxy[0]) > 0:  # If an object is detected
         x_min, y_min, x_max, y_max = results.xyxy[0][0][:4].cpu().numpy().astype(int)
