@@ -44,7 +44,6 @@ def capture_image(output_path):
             ret, frame = cap.read()
             if not ret:
                 break
-            cv2.imshow('Frame', cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR))
             
             # OpenCV 이미지를 PIL 이미지로 변환
             print("2")
