@@ -39,7 +39,7 @@ def capture_image(output_path):
     # 카메라 설정
     cap = cv2.VideoCapture(0)  # 0은 기본 카메라
 
-    img = Image.new("RGB", (width, height), color=(0, 0, 0))
+    img = Image.new("RGB", (450, 450), color=(0, 0, 0))
     img.save(cropped_img_path)
     img.save(output_path)
     
