@@ -5,14 +5,13 @@ import numpy as np
 from pyzbar.pyzbar import decode
 
 # YOLOv5 모듈 경로 추가
-yolov5_path = "/home/dodo/yolov5"
+yolov5_path = "/home/dodo/test/yolov5"
 if yolov5_path not in sys.path:
     sys.path.append(yolov5_path)
 
 from models.experimental import attempt_load
-from utils.general import non_max_suppression
+from utils.general import non_max_suppression, scale_coords
 from utils.torch_utils import select_device
-from utils.plots import save_one_box
 
 # 경로
 base_path = "/home/dodo/test/"
@@ -28,9 +27,10 @@ model = attempt_load(model_path, map_location=device)  # load FP32 model
 # 감지된 객체 크롭하여 저장
 def crop_object(results, img_path, output_path):
     if results is not None and len(results) > 0:  # If an object is detected
-        for *box, conf, cls in results:  # Iterate through detected objects
-            img = Image.open(img_path)
-            save_one_box(box, img, file=output_path, BGR=True)
+        x_min, y_min, x_max, y_max = results[0][:4].cpu().numpy().astype(int)
+        img = Image.open(img_path)
+        cropped_img = img.crop((x_min, y_min, x_max, y_max))
+        cropped_img.save(output_path)
 
 # 크롭된 이미지 리사이즈
 def resize_image(input_path, output_path, size=(450, 450)):
@@ -61,7 +61,7 @@ for i in range(1, 5):
     with torch.no_grad():
         pred = model(img_tensor, augment=False)[0]
         pred = non_max_suppression(pred, 0.25, 0.45, agnostic=False)
-        results = pred if len(pred) > 0 else []
+        results = pred[0] if len(pred) > 0 else None
 
     crop_object(results, img_path, cropped_img_path)
     resize_image(cropped_img_path, output_path)
