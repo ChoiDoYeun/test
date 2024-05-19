@@ -39,25 +39,21 @@ def capture_image(output_path):
     
     try:
         while True:
-            print("1")
             # 카메라로부터 이미지 읽기
             ret, frame = cap.read()
             if not ret:
                 break
             
             # OpenCV 이미지를 PIL 이미지로 변환
-            print("2")
             img_pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
     
             # 모델을 사용하여 이미지에서 객체 감지
-            print("3")
             results = model(img_pil)
     
             # 감지된 객체 처리
             cropped_img_path = base_path + 'cropped_test.png'
             output_path = base_path + 'resize_test.png'
             crop_object(results, img_pil, cropped_img_path)
-            print("4")
             resize_image(cropped_img_path, output_path)
 
             qr_code = read_qr_code(output_path)
