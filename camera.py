@@ -58,8 +58,9 @@ def capture_image(output_path):
 
             qr_code = read_qr_code(output_path)
             print("QR Code:", qr_code)
-            
-           
+
+            if qr_code:
+                break  # qr_code가 생성되면 반복문 종료
 
     finally:
         cap.release()
