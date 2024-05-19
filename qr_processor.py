@@ -12,10 +12,10 @@ class StopThreadException(Exception):
 def process_qr_code_input(warehouse):
     while True:
         try:
+            print("qr 코드 감지중")
             qr_code_image_path = '/home/dodo/test/resize_test.png'
             capture_image(qr_code_image_path)
             qr_data = read_qr_code(qr_code_image_path)
-            print("qr 코드 감지중")
             print(qr_data)
             if qr_data:
                 cars = qr_data.split('\n')
@@ -38,10 +38,10 @@ def process_qr_code_input(warehouse):
 def process_qr_code_output(warehouse):
     while True:
         try:
+            print("qr 코드 감지중")
             qr_code_image_path = '/home/dodo/test/resize_test.png'
             capture_image(qr_code_image_path)
             qr_data = read_qr_code(qr_code_image_path)
-            print("qr 코드 감지중")
             print(qr_data)
             if qr_data:
                 cars = qr_data.split('\n')
