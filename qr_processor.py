@@ -2,6 +2,7 @@
 import time
 from camera import read_qr_code,capture_image
 from motor.in_out_mode import input_mode,output_mode
+import os
 
 stop_thread = False
 class StopThreadException(Exception):
@@ -16,6 +17,9 @@ def process_qr_code_input(warehouse):
             qr_code_image_path = '/home/dodo/test/resize_test.png'
             qr_data = capture_image(qr_code_image_path)
             print("qr 코드 감지완료")
+            os.remove(qr_code_image_path)
+            os.remove('/home/dodo/test/cropped_test.png')
+
             if qr_data:
                 cars = qr_data.split('\n')
                 for car in cars:
