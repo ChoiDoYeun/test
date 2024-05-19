@@ -5,7 +5,7 @@ import numpy as np
 from pyzbar.pyzbar import decode
 
 # YOLOv5 모듈 경로 추가
-yolov5_path = "/home/dodo/test/yolov5"
+yolov5_path = "/home/dodo/yolov5"
 if yolov5_path not in sys.path:
     sys.path.append(yolov5_path)
 
