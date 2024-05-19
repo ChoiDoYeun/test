@@ -60,6 +60,13 @@ def capture_image(output_path):
             print("4")
             resize_image(cropped_img_path, output_path)
 
+            qr_code = read_qr_code(output_path)
+            print("QR Code:", qr_code)
+            
+            cv2.imshow('Frame', cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR))
+
     finally:
         cap.release()
         cv2.destroyAllWindows()
+
+    return qr_code
