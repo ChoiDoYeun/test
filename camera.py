@@ -31,6 +31,9 @@ def capture_image(output_path):
     
     # 저장된 모델 로드
     model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
+    torch.save(model.state_dict(), "local_model_path.pt")
+    model.load_state_dict(torch.load("local_model_path.pt"))
+    
     # 카메라 설정
     cap = cv2.VideoCapture(0)  # 0은 기본 카메라
     
@@ -52,3 +55,7 @@ def capture_image(output_path):
             output_path = base_path + 'resize_test.png'
             crop_object(results, img_pil, cropped_img_path)
             resize_image(cropped_img_path, output_path)
+
+    finally:
+        cap.release()
+        cv2.destroyAllWindows()
