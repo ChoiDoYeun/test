@@ -28,6 +28,8 @@ def capture_image(output_path):
     # 경로 설정
     base_path = "/home/dodo/test/"
     model_path = base_path + 'best.pt'
+    cropped_img_path = base_path + 'cropped_test.png'
+    output_path = base_path + 'resize_test.png'
     
     # 저장된 모델 로드
     model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
@@ -36,6 +38,10 @@ def capture_image(output_path):
     
     # 카메라 설정
     cap = cv2.VideoCapture(0)  # 0은 기본 카메라
+
+    img = Image.new("RGB", (width, height), color=(0, 0, 0))
+    img.save(cropped_img_path)
+    img.save(output_path)
     
     try:
         while True:
@@ -51,8 +57,6 @@ def capture_image(output_path):
             results = model(img_pil)
     
             # 감지된 객체 처리
-            cropped_img_path = base_path + 'cropped_test.png'
-            output_path = base_path + 'resize_test.png'
             crop_object(results, img_pil, cropped_img_path)
             resize_image(cropped_img_path, output_path)
 
