@@ -87,7 +87,7 @@ try:
         target_a = int(input("target A : "))
 
         # 컨베이어 벨트 이동
-        steps = 167 * 200
+        steps = 139 * 200
         direction = GPIO.HIGH
         move_Con_motor(Con_STEP, Con_DIR, steps, direction)
         time.sleep(0.002)  # 대기 시간
@@ -117,7 +117,7 @@ try:
         current_a = target_a  # 현재 Y 위치 업데이트
 
         # 컨베이어 벨트 이동
-        steps = 167 * 200
+        steps = 139 * 200
         direction = GPIO.LOW
         move_Con_motor(Con_STEP, Con_DIR, steps, direction)
         time.sleep(0.002)  # 대기 시간
