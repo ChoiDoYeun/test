@@ -5,5 +5,9 @@ import time
 
 def run():
     print("Run 시작")
-    move_position_back(225,350,50) # 입차대기장소로 이동
+    # move_position_back(225,350,50)
+    # 원점으로 이동
+    # move_zero_point (x)
+    # move_zero_point (z)
+    # move_zero_point (y)
     time.sleep(0.5)
