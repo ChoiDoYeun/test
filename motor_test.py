@@ -62,9 +62,9 @@ def move_Con_motor(step_pin, dir_pin, steps, direction):
     GPIO.output(dir_pin, direction)
     for _ in range(steps):
         GPIO.output(step_pin, GPIO.HIGH)
-        time.sleep(0.001)  # 1ms 대기
+        time.sleep(0.0005)  # 1ms 대기
         GPIO.output(step_pin, GPIO.LOW)
-        time.sleep(0.001)
+        time.sleep(0.0005)
       
 # dir, step 계산 함수
 def calculate_steps_and_direction(current_pos, target_pos):
@@ -87,9 +87,14 @@ try:
         target_a = int(input("target A : "))
 
         # 컨베이어 벨트 이동
-        steps = 139 * 200
+        steps = 141 * 200
         direction = GPIO.HIGH
         move_Con_motor(Con_STEP, Con_DIR, steps, direction)
+        time.sleep(0.002)  # 대기 시간
+
+        steps = 12 * 200
+        direction = GPIO.HIGH
+        move_motor(Y_STEP, Y_DIR, steps, direction) # Y축 모터 동작
         time.sleep(0.002)  # 대기 시간
 
         # Z축 이동
@@ -117,7 +122,7 @@ try:
         current_a = target_a  # 현재 Y 위치 업데이트
 
         # 컨베이어 벨트 이동
-        steps = 139 * 200
+        steps = 141 * 200
         direction = GPIO.LOW
         move_Con_motor(Con_STEP, Con_DIR, steps, direction)
         time.sleep(0.002)  # 대기 시간
