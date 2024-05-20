@@ -1,0 +1,27 @@
+parking_spots =  
+{
+    "A11": {"target_x": 85, "target_y": 0, "target_z": 264},
+    "A12": {"target_x": 161, "target_y": 0, "target_z": 264},
+    "A21": {"target_x": 85, "target_y": 85, "target_z": 264},
+    "A22": {"target_x": 161, "target_y": 85, "target_z": 264},
+    "A31": {"target_x": 85, "target_y": 170, "target_z": 264},
+    "A32": {"target_x": 161, "target_y": 170, "target_z": 264},
+    "B11": {"target_x": 329, "target_y": 0, "target_z": 264},
+    "B12": {"target_x": 405, "target_y": 0, "target_z": 264},
+    "B21": {"target_x": 329, "target_y": 85, "target_z": 264},
+    "B22": {"target_x": 405, "target_y": 85, "target_z": 264},
+    "B31": {"target_x": 329, "target_y": 170, "target_z": 264},
+    "B32": {"target_x": 405, "target_y": 170, "target_z": 264},
+    "C11": {"target_x": 85, "target_y": 0, "target_z": 504},
+    "C12": {"target_x": 161, "target_y": 0, "target_z": 504},
+    "C21": {"target_x": 85, "target_y": 85, "target_z": 504},
+    "C22": {"target_x": 161, "target_y": 170, "target_z": 504},
+    "C31": {"target_x": 85, "target_y": 85, "target_z": 504},
+    "C32": {"target_x": 161, "target_y": 170, "target_z": 504},
+    "D11": {"target_x": 329, "target_y": 0, "target_z": 504},
+    "D12": {"target_x": 405, "target_y": 0, "target_z": 504},
+    "D21": {"target_x": 329, "target_y": 85, "target_z": 504},
+    "D22": {"target_x": 405, "target_y": 170, "target_z": 504},
+    "D31": {"target_x": 329, "target_y": 85, "target_z": 504},
+    "D32": {"target_x": 405, "target_y": 170, "target_z": 504}
+}
