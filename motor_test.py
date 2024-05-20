@@ -91,7 +91,7 @@ try:
         # 컨베이어 벨트 이동
         # steps = 141 * 200
         # direction = GPIO.HIGH
-        steps, direction = calculate_steps_and_direction(current_z, target_con) # Z축 dir방향, step수 계산
+        steps, direction = calculate_steps_and_direction(current_con, target_con) # Z축 dir방향, step수 계산
         move_Con_motor(Con_STEP, Con_DIR, steps, direction)
         time.sleep(0.002)  # 대기 시간
         current_con = target_con
