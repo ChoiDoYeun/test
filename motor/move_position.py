@@ -2,7 +2,7 @@
 import time
 from motor.config import initialize, current_x, current_y, current_z
 from motor.calculate_steps_and_direction import calculate_steps_and_direction
-from motor.move_motor import move_motor
+from motor.move_motor import move_motor, move_Z_motor
 
 def move_position_back(target_x, target_y, target_z):   # x,y->z순으로 동작
     global current_x, current_y, current_z
@@ -25,8 +25,7 @@ def move_position_back(target_x, target_y, target_z):   # x,y->z순으로 동작
     # Z축 이동
     steps, direction = calculate_steps_and_direction(current_z, target_z)
     print("Z축 이동중")
-    move_motor(Z_STEP_1, Z_DIR_1, steps, direction)
-    move_motor(Z_STEP_2, Z_DIR_2, steps, direction)
+    move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, steps, direction)
     print("Z축 이동완료")
     current_z = target_z  # 현재 Z 위치 업데이트
     
@@ -41,8 +40,7 @@ def move_position_go(target_x, target_y, target_z):  # z,y->x순으로 동작
     # Z축 이동
     steps, direction = calculate_steps_and_direction(current_z, target_z)
     print("Z축 이동중")
-    move_motor(Z_STEP_1, Z_DIR_1, steps, direction)
-    move_motor(Z_STEP_2, Z_DIR_2, steps, direction)
+    move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, steps, direction)
     print("Z축 이동완료")
     current_z = target_z  # 현재 Z 위치 업데이트
     
