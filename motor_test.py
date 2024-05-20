@@ -34,9 +34,9 @@ def move_motor(step_pin, dir_pin, steps, direction):
     GPIO.output(dir_pin, direction)
     for _ in range(steps):
         GPIO.output(step_pin, GPIO.HIGH)
-        time.sleep(0.0005)  # 
+        time.sleep(0.0002)  # 
         GPIO.output(step_pin, GPIO.LOW)
-        time.sleep(0.0005)
+        time.sleep(0.0002)
 
 def move_Z_motor(step1_pin, dir1_pin, step2_pin, dir2_pin, steps, direction):
     GPIO.output(dir1_pin, direction)
@@ -62,9 +62,9 @@ def move_Con_motor(step_pin, dir_pin, steps, direction):
     GPIO.output(dir_pin, direction)
     for _ in range(steps):
         GPIO.output(step_pin, GPIO.HIGH)
-        time.sleep(0.0005)  # 1ms 대기
+        time.sleep(0.0002)  # 1ms 대기
         GPIO.output(step_pin, GPIO.LOW)
-        time.sleep(0.0005)
+        time.sleep(0.0002)
       
 # dir, step 계산 함수
 def calculate_steps_and_direction(current_pos, target_pos):
@@ -92,10 +92,6 @@ try:
         move_Con_motor(Con_STEP, Con_DIR, steps, direction)
         time.sleep(0.002)  # 대기 시간
 
-        steps = 12 * 200
-        direction = GPIO.HIGH
-        move_motor(Y_STEP, Y_DIR, steps, direction) # Y축 모터 동작
-        time.sleep(0.002)  # 대기 시간
 
         # Z축 이동
         steps, direction = calculate_steps_and_direction(current_z, target_z) # Z축 dir방향, step수 계산
