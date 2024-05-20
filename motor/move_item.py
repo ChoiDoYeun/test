@@ -1,6 +1,6 @@
 # move_item.py
 # A 모터 동작
-from motor.move_motor import move_motor
+from motor.move_motor import move_motor, move_A_motor
 from motor.config import initialize
 import RPi.GPIO as GPIO
 
@@ -9,7 +9,7 @@ def move_item_high():
     steps = 500 # 예시
     direction = GPIO.HIGH # 예시
     print("A모터 동작중")
-    move_motor(A_STEP, A_DIR, steps, direction)
+    move_A_motor(A_STEP, A_DIR, steps, direction)
     print("A모터 동작완료")
     
 def move_item_low():
@@ -17,5 +17,5 @@ def move_item_low():
     steps = 500 # 예시
     direction = GPIO.LOW # 예시
     print("A모터 동작중")
-    move_motor(A_STEP, A_DIR, steps, direction)
+    move_A_motor(A_STEP, A_DIR, steps, direction)
     print("A모터 동작완료")
