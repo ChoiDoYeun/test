@@ -42,7 +42,7 @@ def move_Z_motor(step1_pin, dir1_pin, step2_pin, dir2_pin, steps, direction):
     for _ in range(steps):
         GPIO.output(step1_pin, GPIO.HIGH)
         GPIO.output(step2_pin, GPIO.HIGH)
-        time.sleep(0.0002)  # 50mm 6초 0.00025
+        time.sleep(0.0002)  # 0.0002
         GPIO.output(step1_pin, GPIO.LOW)
         GPIO.output(step2_pin, GPIO.LOW)
         time.sleep(0.0002)
