@@ -28,6 +28,7 @@ current_x = 0
 current_y = 0
 current_z = 0
 current_a = 0
+current_con = 0
 
 # 모터 동작 함수
 def move_motor(step_pin, dir_pin, steps, direction):
@@ -85,12 +86,15 @@ try:
         target_y = int(input("target Y : "))
         target_z = int(input("target Z : "))
         target_a = int(input("target A : "))
+        target_con = int(input("target con : "))
 
         # 컨베이어 벨트 이동
-        steps = 141 * 200
-        direction = GPIO.HIGH
+        # steps = 141 * 200
+        # direction = GPIO.HIGH
+        steps, direction = calculate_steps_and_direction(current_z, target_con) # Z축 dir방향, step수 계산
         move_Con_motor(Con_STEP, Con_DIR, steps, direction)
         time.sleep(0.002)  # 대기 시간
+        current_con = target_con
 
 
         # Z축 이동
@@ -118,10 +122,10 @@ try:
         current_a = target_a  # 현재 Y 위치 업데이트
 
         # 컨베이어 벨트 이동
-        steps = 141 * 200
-        direction = GPIO.LOW
-        move_Con_motor(Con_STEP, Con_DIR, steps, direction)
-        time.sleep(0.002)  # 대기 시간
+        # steps = 141 * 200
+        # direction = GPIO.LOW
+        # move_Con_motor(Con_STEP, Con_DIR, steps, direction)
+        # time.sleep(0.002)  # 대기 시간
 
         # 현재위치 출력
         print("finish move to target position")
