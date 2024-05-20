@@ -40,6 +40,9 @@ try:
         ret, frame = cap.read()
         if not ret:
             break
+        img = Image.new("RGB", (450, 450), color=(0, 0, 0))
+        img.save(cropped_img_path)
+        img.save(output_path)
 
         # OpenCV 이미지를 PIL 이미지로 변환
         img_pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
