@@ -30,6 +30,7 @@ def capture_image(output_path):
     model_path = base_path + 'best.pt'
     cropped_img_path = base_path + 'cropped_test.png'
     output_path = base_path + 'resize_test.png'
+    full_image_path = base_path + 'full_frame.png'  # 전체 프레임 저장 경로
     
     # 저장된 모델 로드
     model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
@@ -57,13 +58,15 @@ def capture_image(output_path):
             results = model(img_pil)
     
             # 감지된 객체 처리
-            crop_object(results, img_pil, cropped_img_path)
-            resize_image(cropped_img_path, output_path)
-
-            qr_code = read_qr_code(output_path)
-
-            if qr_code:
-                break  # qr_code가 생성되면 반복문 종료
+            if results.xyxy[0].shape[0] > 0:  # 객체가 감지된 경우
+                img_pil.save(full_image_path)  # 전체 프레임 저장
+                crop_object(results, img_pil, cropped_img_path)
+                resize_image(cropped_img_path, output_path)
+    
+                qr_code = read_qr_code(output_path)
+    
+                if qr_code:
+                    break  # qr_code가 생성되면 반복문 종료
 
     finally:
         cap.release()
