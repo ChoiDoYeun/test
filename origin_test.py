@@ -98,4 +98,21 @@ try:
         target_y = 85
         target_z = 224
 
+except KeyboardInterrupt: #추후 stop버튼 푸쉬시 동작하도록 변경해야함
+    print("Before finish, should move to original. plz wait")
+    # 현재 위치에서 (0,0,0)으로 이동
+    steps, direction = calculate_steps_and_direction(current_x, 0)
+    move_motor(X_STEP, X_DIR, steps, direction)
+    time.sleep(0.002)  # 대기 시간
 
+    steps, direction = calculate_steps_and_direction(current_y, 0)
+    move_motor(Y_STEP, Y_DIR, steps, direction)
+    time.sleep(0.002)  # 대기 시간
+
+    steps, direction = calculate_steps_and_direction(current_z, 0)
+    move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
+    time.sleep(0.002)  # 대기 시간
+    print("Arrived original, program finish")
+    
+finally:
+    GPIO.cleanup()
