@@ -30,8 +30,6 @@ GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_S
 current_x = 0
 current_y = 0
 current_z = 0
-current_a = 0
-current_con = 0
 
 # 모터 동작 함수
 def move_motor(step_pin, dir_pin, steps, direction):
