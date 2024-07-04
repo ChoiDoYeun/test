@@ -41,6 +41,12 @@ try:
         if not ret:
             break
 
+        cropped_img_path = base_path + 'cropped_test.png'
+        output_path = base_path + 'resize_test.png'
+        img = Image.new("RGB", (450, 450), color=(0, 0, 0))
+        img.save(cropped_img_path)
+        img.save(output_path)
+
         # OpenCV 이미지를 PIL 이미지로 변환
         img_pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
 
@@ -48,8 +54,6 @@ try:
         results = model(img_pil)
 
         # 감지된 객체 처리
-        cropped_img_path = base_path + 'cropped_test.png'
-        output_path = base_path + 'resize_test.png'
         crop_object(results, img_pil, cropped_img_path)
         resize_image(cropped_img_path, output_path)
 

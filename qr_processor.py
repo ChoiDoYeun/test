@@ -2,6 +2,7 @@
 import time
 from camera import read_qr_code,capture_image
 from motor.in_out_mode import input_mode,output_mode
+import os
 
 stop_thread = False
 class StopThreadException(Exception):
@@ -12,9 +13,13 @@ class StopThreadException(Exception):
 def process_qr_code_input(warehouse):
     while True:
         try:
-            #capture_image(qr_code_image_path)
-            qr_code_image_path = '세단_QR_Code.png'
-            qr_data = read_qr_code(qr_code_image_path)
+            print("qr 코드 감지중")
+            qr_code_image_path = '/home/dodo/test/resize_test.png'
+            qr_data = capture_image(qr_code_image_path)
+            print("qr 코드 감지완료")
+            os.remove(qr_code_image_path)
+            os.remove('/home/dodo/test/cropped_test.png')
+
             if qr_data:
                 cars = qr_data.split('\n')
                 for car in cars:
@@ -26,18 +31,20 @@ def process_qr_code_input(warehouse):
                             input_mode(x,y,z)
                         else:
                             print(f"{car}를 저장할 공간이 없습니다.")
+                time.sleep(5) # <- 시간은 인식하고 컨베이어벨트가 동작하는 시간
             else:
                 print("QR 코드를 읽을 수 없습니다.")
-                        # 15초마다 동작
-            time.sleep(5)
+            time.sleep(1)
         except StopThreadException:
             break  # 예외가 발생하면 루프를 종료합니다.
         
 def process_qr_code_output(warehouse):
     while True:
         try:
-            qr_code_image_path = 'output_qrcode.png'
-            qr_data = read_qr_code(qr_code_image_path)
+            print("qr 코드 감지중")
+            qr_code_image_path = '/home/dodo/test/resize_test.png'
+            qr_data = capture_image(qr_code_image_path)
+            print("qr 코드 감지완료")
             if qr_data:
                 cars = qr_data.split('\n')
                 for car in cars:
@@ -50,6 +57,7 @@ def process_qr_code_output(warehouse):
                             warehouse.remove_item(location)  # 차량 제거
                         else:
                             print(f"{car}는 창고에 존재하지 않습니다.")
+                time.sleep(5) # <- 시간은 인식하고 컨베이어벨트가 동작하는 시간
             else:
                 print("QR 코드를 읽을 수 없습니다.")
             time.sleep(5)
