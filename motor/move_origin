@@ -1,6 +1,8 @@
 import RPi.GPIO as GPIO
 import time
-
+from motor.config import initialize, current_x, current_y, current_z
+from motor.calculate_steps_and_direction import calculate_steps_and_direction
+from motor.move_motor import move_motor, move_Z_motor
 
 def move_origin(x_step,x_dir,step1_pin,step2_pin,dir1_pin,dir2_pin,y_step,y_dir):
    
