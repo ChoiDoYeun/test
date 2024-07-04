@@ -91,3 +91,11 @@ def move_origin(x_step,x_dir,step1_pin,step2_pin,dir1_pin,dir2_pin,y_step,y_dir)
       move_motor(y_step,y_dir,1,GPIO.HIGH)
       current_y = origin.y
    time.sleep(0.01)
+
+try:
+    while True:
+        target_x = 87
+        target_y = 85
+        target_z = 224
+
+
