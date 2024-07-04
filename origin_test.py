@@ -105,9 +105,11 @@ try:
         time.sleep(0.002)  # 대기 시간
         current_y = target_y  # 현재 Y 위치 업데이트
 
-        time.sleep(0.5)
+        time.sleep(1)
 
         move_origin(x_step, x_dir, step1_pin, step2_pin, dir1_pin, dir2_pin, y_step, y_dir)
+
+        time.sleep(1)
         
 except KeyboardInterrupt: #추후 stop버튼 푸쉬시 동작하도록 변경해야함
     print("Before finish, should move to original. plz wait")
