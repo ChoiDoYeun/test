@@ -6,7 +6,7 @@ from motor.move_motor import move_motor, move_Z_motor
 
 def move_position_back(target_x, target_y, target_z):   # x,y->z순으로 동작
     global current_x, current_y, current_z
-    X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR  = initialize()
+    X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR,limit_x_switch,limit_y_switch,limit_z_switch  = initialize()
     # X축 이동
     steps, direction = calculate_steps_and_direction(current_x, target_x)
     print("x축 이동중")
@@ -35,7 +35,7 @@ def move_position_back(target_x, target_y, target_z):   # x,y->z순으로 동작
 
 def move_position_go(target_x, target_y, target_z):  # z,y->x순으로 동작
     global current_x, current_y, current_z
-    X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR  = initialize()
+    X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR,limit_x_switch,limit_y_switch,limit_z_switch  = initialize()
     
     # Z축 이동
     steps, direction = calculate_steps_and_direction(current_z, target_z)
