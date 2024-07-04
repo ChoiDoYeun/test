@@ -1,4 +1,5 @@
-
+import RPi.GPIO as GPIO
+import time
 
 
 def move_origin(x_step,x_dir,step1_pin,step2_pin,dir1_pin,dir2_pin,y_step,y_dir):
