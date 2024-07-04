@@ -61,6 +61,16 @@ def move_A_motor(step_pin, dir_pin, steps, direction):
         time.sleep(0.01)  # 1ms 대기
         GPIO.output(step_pin, GPIO.LOW)
         time.sleep(0.01)
+
+# dir, step 계산 함수
+def calculate_steps_and_direction(current_pos, target_pos):
+    if target_pos > current_pos:
+        direction = GPIO.HIGH
+        steps = (target_pos - current_pos) * STEPS_PER_MM
+    else:
+        direction = GPIO.LOW
+        steps = (current_pos - target_pos) * STEPS_PER_MM
+    return steps, direction
         
 # 리밋 스위치 동작 함수
 def move_origin(x_step,x_dir,step1_pin,step2_pin,dir1_pin,dir2_pin,y_step,y_dir):
