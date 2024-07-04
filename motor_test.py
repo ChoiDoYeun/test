@@ -12,9 +12,9 @@ Z_STEP_2 = 25
 Z_DIR_2 = 8
 A_STEP = 10  # A모터 핀설정
 A_DIR = 9
-limit_x_switch = 5
-limit_y_switch = 6
-limit_z_switch = 16
+LIMIT_X = 5
+LIMIT_Y = 6
+LIMIT_Z = 16
 
 Con_STEP = 7
 Con_DIR = 1
@@ -24,7 +24,7 @@ STEPS_PER_MM = 200  # 1mm당 필요한 스텝 수
 
 # GPIO 설정
 GPIO.setmode(GPIO.BCM)
-GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR,Con_STEP,Con_DIR,limit_x_switch,limit_y_switch,limit_z_switch], GPIO.OUT)
+GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR,Con_STEP,Con_DIR,LIMIT_X,LIMIT_Y,LIMIT_Z], GPIO.OUT)
 
 # 현재위치 초기화
 current_x = 0
