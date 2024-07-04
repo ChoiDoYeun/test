@@ -22,7 +22,7 @@ def initialize():
     Z_DIR_2 = 8
     A_STEP = 10  # A모터 핀설정
     A_DIR = 9
-    limit_x_switch = 5
+    LIMIT_X = 5
     limit_y_switch = 6
     limit_z_switch = 16
     # GPIO 설정
