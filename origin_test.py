@@ -119,8 +119,8 @@ try:
 
         time.sleep(0.5)
 
+        move_origin(x_step,x_dir,step1_pin,step2_pin,dir1_pin,dir2_pin,y_step,y_dir)
         
-
 except KeyboardInterrupt: #추후 stop버튼 푸쉬시 동작하도록 변경해야함
     print("Before finish, should move to original. plz wait")
     # 현재 위치에서 (0,0,0)으로 이동
