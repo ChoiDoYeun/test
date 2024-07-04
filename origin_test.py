@@ -22,7 +22,7 @@ STEPS_PER_MM = 200  # 1mm당 필요한 스텝 수
 
 # GPIO 설정
 GPIO.setmode(GPIO.BCM)
-GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR,Con_STEP,Con_DIR,LIMIT_X,LIMIT_Y,LIMIT_Z], GPIO.OUT)
+GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, A_STEP, A_DIR, LIMIT_X, LIMIT_Y, LIMIT_Z], GPIO.OUT)
 
 # 현재위치 초기화
 current_x = 0
@@ -49,14 +49,6 @@ def move_Z_motor(step1_pin, dir1_pin, step2_pin, dir2_pin, steps, direction):
         GPIO.output(step1_pin, GPIO.LOW)
         GPIO.output(step2_pin, GPIO.LOW)
         time.sleep(0.0002)
-
-def move_A_motor(step_pin, dir_pin, steps, direction):
-    GPIO.output(dir_pin, direction)
-    for _ in range(steps):
-        GPIO.output(step_pin, GPIO.HIGH)
-        time.sleep(0.01)  # 1ms 대기
-        GPIO.output(step_pin, GPIO.LOW)
-        time.sleep(0.01)
 
 # dir, step 계산 함수
 def calculate_steps_and_direction(current_pos, target_pos):
