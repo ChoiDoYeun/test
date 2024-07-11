@@ -22,10 +22,15 @@ def initialize():
     Z_DIR_2 = 8
     A_STEP = 10  # A모터 핀설정
     A_DIR = 9
+
+    Con_STEP = 7
+    Con_DIR = 13
+
     LIMIT_X = 5
     LIMIT_Y = 6
     LIMIT_Z = 16
     # GPIO 설정
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR,LIMIT_X,LIMIT_Y,LIMIT_Z], GPIO.OUT)
-    return X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR,LIMIT_X,LIMIT_Y,LIMIT_Z
+    GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, A_STEP, A_DIR,Con_STEP,Con_DIR], GPIO.OUT)
+    GPIO.setup([LIMIT_X, LIMIT_Y, LIMIT_Z], GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    return X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1,Z_STEP_2,Z_DIR_2,A_STEP,A_DIR,Con_STEP,Con_DIR,LIMIT_X,LIMIT_Y,LIMIT_Z
