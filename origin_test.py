@@ -116,6 +116,7 @@ try:
         #print(current_x,current_y,current_z)
 
         move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2)
+        print("done origin")
 
         break
         
