@@ -82,16 +82,19 @@ def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, di
 try:
     while True:
 
-        if GPIO.input(LIMIT_Y) == GPIO.LOW:
+        while GPIO.input(LIMIT_Y) == GPIO.LOW:
             print("move y")
-        
-        elif GPIO.input(LIMIT_X) == GPIO.LOW:
+        print("check y")
+        time.sleep(0.01)
+        while GPIO.input(LIMIT_X) == GPIO.LOW:
             print("move x")
+        print("check x")
+        time.sleep(0.01)
         
-        elif GPIO.input(LIMIT_Z) == GPIO.LOW:
+        while GPIO.input(LIMIT_Z) == GPIO.LOW:
             print("move z")
-        #print("z check")
-
+        print("z check")
+        time.sleep(0.01)
         # target_x = 87
         # target_y = 85
         # target_z = 224
