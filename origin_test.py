@@ -90,10 +90,6 @@ try:
         
         elif GPIO.input(LIMIT_Z) == GPIO.LOW:
             print("move z")
-        
-        else : 
-            print("nothing input")
-            time.sleep(0.5)
         #print("z check")
 
         # target_x = 87
