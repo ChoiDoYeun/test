@@ -83,7 +83,7 @@ try:
     while True:
         check_origin = 0
 
-        while check_origin = 0:
+        while check_origin == 0:
             while GPIO.input(LIMIT_Y) == GPIO.HIGH:
                 print("move y")
             print("check y")
