@@ -81,20 +81,20 @@ def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, di
 try:
     while True:
 
-        while LIMIT_Y == False:
+        if LIMIT_Y == False:
           print("move x")
-        time.sleep(0.01)
-        print("x check")
+        #time.sleep(0.01)
+        #print("x check")
         
-        while LIMIT_X == False:
+        elif LIMIT_X == False:
             print("move y")
-        time.sleep(0.01)
-        print("y check")
+        #time.sleep(0.01)
+        #print("y check")
         
-        while LIMIT_Z == False:
+        elif LIMIT_Z == False:
             print("move z")
-        time.sleep(0.01)
-        print("z check")
+        #time.sleep(0.01)
+        #print("z check")
 
         # target_x = 87
         # target_y = 85
