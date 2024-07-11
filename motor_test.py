@@ -16,8 +16,8 @@ LIMIT_X = 5
 LIMIT_Y = 6
 LIMIT_Z = 16
 
-Con_STEP = 13
-Con_DIR = 1
+Con_STEP = 7
+Con_DIR = 13
 
 # 스텝 설정
 STEPS_PER_MM = 200  # 1mm당 필요한 스텝 수
