@@ -110,7 +110,7 @@ try:
 
         time.sleep(2)
 
-        move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, dir2_pin)
+        move_origin()
 
         time.sleep(1)
         
