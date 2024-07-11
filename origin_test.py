@@ -62,8 +62,6 @@ def calculate_steps_and_direction(current_pos, target_pos):
         
 # 리밋 스위치 동작 함수
 def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, dir2_pin):
-   global current_x, current_y, current_z
-   X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, A_STEP, A_DIR, LIMIT_X, LIMIT_Y, LIMIT_Z  = initialize()
 
    while LIMIT_Y == true:
       move_motor(y_step, y_dir, 1, GPIO.LOW)
@@ -82,8 +80,6 @@ def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, di
 
 try:
     while True:
-
-        X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, A_STEP, A_DIR, LIMIT_X, LIMIT_Y, LIMIT_Z  = initialize()
 
         while LIMIT_Y == true:
           print("move x")
