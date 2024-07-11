@@ -23,7 +23,7 @@ STEPS_PER_MM = 200  # 1mm당 필요한 스텝 수
 # GPIO 설정
 GPIO.setmode(GPIO.BCM)
 GPIO.setup([X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, A_STEP, A_DIR], GPIO.OUT)
-GPIO.setup([LIMIT_X, LIMIT_Y, LIMIT_Z],GPIO.IN)
+GPIO.setup([LIMIT_X, LIMIT_Y, LIMIT_Z], GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # 현재위치 초기화
 current_x = 0
