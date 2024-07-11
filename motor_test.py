@@ -16,7 +16,7 @@ LIMIT_X = 5
 LIMIT_Y = 6
 LIMIT_Z = 16
 
-Con_STEP = 7
+Con_STEP = 13
 Con_DIR = 1
 
 # 스텝 설정
