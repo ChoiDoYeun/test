@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 # 모터 드라이버 핀 설정
+# 모터 드라이버 핀 설정
 X_STEP = 17
 X_DIR = 18
 Y_STEP = 27
@@ -15,6 +16,9 @@ A_DIR = 9
 LIMIT_X = 5
 LIMIT_Y = 6
 LIMIT_Z = 16
+
+Con_STEP = 7
+Con_DIR = 13
 
 
 # 스텝 설정
@@ -89,9 +93,10 @@ def move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2):
     
 try:
     while True:
-        target_x = 10
-        target_y = 10
-        target_z = 10
+
+        target_x = int(input("target X : "))
+        target_y = int(input("target Y : "))
+        target_z = int(input("target Z : "))
 
         # Z축 이동
         steps, direction = calculate_steps_and_direction(current_z, target_z) # Z축 dir방향, step수 계산
