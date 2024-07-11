@@ -81,7 +81,7 @@ def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, di
             current_z = origin.z
         check_origin = 1
         time.sleep(0.1)
-    break
+        break
     
 try:
     while True:
