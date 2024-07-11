@@ -94,7 +94,10 @@ try:
         
         elif LIMIT_Z == True:
             print("move z")
-        #time.sleep(0.01)
+        
+        else : 
+            print("nothing input)"
+            time.sleep(0.5)
         #print("z check")
 
         # target_x = 87
