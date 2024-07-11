@@ -82,34 +82,79 @@ def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, di
 
 try:
     while True:
-        target_x = 87
-        target_y = 85
-        target_z = 224
 
-        # Z축 이동
-        steps, direction = calculate_steps_and_direction(current_z, target_z) # Z축 dir방향, step수 계산
-        move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
-        time.sleep(0.002)  # 대기 시간
-        current_z = target_z  # 현재 Z 위치 업데이트
+        X_STEP, X_DIR, Y_STEP, Y_DIR, Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, A_STEP, A_DIR, LIMIT_X, LIMIT_Y, LIMIT_Z  = initialize()
 
-        # X축 이동
-        steps, direction = calculate_steps_and_direction(current_x, target_x) # X축 dir방향, step수 계산
-        move_motor(X_STEP, X_DIR, steps, direction) # X축 모터 동작
-        time.sleep(0.002)  # 대기 시간
-        current_x = target_x  # 현재 X 위치 업데이트
+        while LIMIT_Y == true:
+          print("move x")
+        time.sleep(0.01)
+        print("x check")
+        
+        while LIMIT_X == true:
+            print("move y")
+        time.sleep(0.01)
+        print("y check")
+        
+        while LIMIT_Z == true:
+            print("move z")
+        time.sleep(0.01)
+        print("z check")
 
-        # Y축 이동
-        steps, direction = calculate_steps_and_direction(current_y, target_y) # Y축 dir방향, step수 계산
-        move_motor(Y_STEP, Y_DIR, steps, direction) # Y축 모터 동작
-        print(direction)
-        time.sleep(0.002)  # 대기 시간
-        current_y = target_y  # 현재 Y 위치 업데이트
+        # target_x = 87
+        # target_y = 85
+        # target_z = 224
 
-        time.sleep(1)
+        # # Z축 이동
+        # steps, direction = calculate_steps_and_direction(current_z, target_z) # Z축 dir방향, step수 계산
+        # move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
+        # time.sleep(0.002)  # 대기 시간
+        # current_z = target_z  # 현재 Z 위치 업데이트
 
-        move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, dir2_pin)
+        # # X축 이동
+        # steps, direction = calculate_steps_and_direction(current_x, target_x) # X축 dir방향, step수 계산
+        # move_motor(X_STEP, X_DIR, steps, direction) # X축 모터 동작
+        # time.sleep(0.002)  # 대기 시간
+        # current_x = target_x  # 현재 X 위치 업데이트
 
-        time.sleep(1)
+        # # Y축 이동
+        # steps, direction = calculate_steps_and_direction(current_y, target_y) # Y축 dir방향, step수 계산
+        # move_motor(Y_STEP, Y_DIR, steps, direction) # Y축 모터 동작
+        # print(direction)
+        # time.sleep(0.002)  # 대기 시간
+        # current_y = target_y  # 현재 Y 위치 업데이트
+
+        # time.sleep(1)
+
+        # move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, dir2_pin)
+
+        # time.sleep(1)        # target_x = 87
+        # target_y = 85
+        # target_z = 224
+
+        # # Z축 이동
+        # steps, direction = calculate_steps_and_direction(current_z, target_z) # Z축 dir방향, step수 계산
+        # move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, steps, direction) # Z축 모터 동작
+        # time.sleep(0.002)  # 대기 시간
+        # current_z = target_z  # 현재 Z 위치 업데이트
+
+        # # X축 이동
+        # steps, direction = calculate_steps_and_direction(current_x, target_x) # X축 dir방향, step수 계산
+        # move_motor(X_STEP, X_DIR, steps, direction) # X축 모터 동작
+        # time.sleep(0.002)  # 대기 시간
+        # current_x = target_x  # 현재 X 위치 업데이트
+
+        # # Y축 이동
+        # steps, direction = calculate_steps_and_direction(current_y, target_y) # Y축 dir방향, step수 계산
+        # move_motor(Y_STEP, Y_DIR, steps, direction) # Y축 모터 동작
+        # print(direction)
+        # time.sleep(0.002)  # 대기 시간
+        # current_y = target_y  # 현재 Y 위치 업데이트
+
+        # time.sleep(1)
+
+        # move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, dir2_pin)
+
+        # time.sleep(1)
         
 except KeyboardInterrupt: #추후 stop버튼 푸쉬시 동작하도록 변경해야함
     print("Before finish, should move to original. plz wait")
