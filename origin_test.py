@@ -98,6 +98,7 @@ try:
             print("check z")
             check_origin = 1
             time.sleep(0.5)
+            break
         # target_x = 87
         # target_y = 85
         # target_z = 224
