@@ -96,7 +96,7 @@ try:
             print("move z")
         
         else : 
-            print("nothing input)"
+            print("nothing input")
             time.sleep(0.5)
         #print("z check")
 
