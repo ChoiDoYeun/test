@@ -117,7 +117,7 @@ try:
 
         move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2)
 
-        time.sleep(1)
+        break
         
 except KeyboardInterrupt: #추후 stop버튼 푸쉬시 동작하도록 변경해야함
     print("Before finish, should move to original. plz wait")
