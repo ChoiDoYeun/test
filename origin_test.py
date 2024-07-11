@@ -63,17 +63,17 @@ def calculate_steps_and_direction(current_pos, target_pos):
 # 리밋 스위치 동작 함수
 def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, dir2_pin):
 
-   while LIMIT_Y == true:
+   while LIMIT_Y == True:
       move_motor(y_step, y_dir, 1, GPIO.LOW)
       current_y = origin.y
    time.sleep(0.01)
     
-   while LIMIT_X == true:
+   while LIMIT_X == True:
       move_motor(x_step, x_dir, 1, GPIO.LOW)
       current_x = origin.x
    time.sleep(0.01)
    
-   while LIMIT_Z == true:
+   while LIMIT_Z == True:
       move_Z_motor(step1_pin, dir1_pin, step2_pin, dir2_pin, 1, GPIO.LOW)
       current_z = origin.z
    time.sleep(0.01)
@@ -81,17 +81,17 @@ def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, di
 try:
     while True:
 
-        while LIMIT_Y == true:
+        while LIMIT_Y == True:
           print("move x")
         time.sleep(0.01)
         print("x check")
         
-        while LIMIT_X == true:
+        while LIMIT_X == True:
             print("move y")
         time.sleep(0.01)
         print("y check")
         
-        while LIMIT_Z == true:
+        while LIMIT_Z == True:
             print("move z")
         time.sleep(0.01)
         print("z check")
