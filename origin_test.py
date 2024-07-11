@@ -30,6 +30,10 @@ current_x = 0
 current_y = 0
 current_z = 0
 
+origin_x = 0
+origin_y = 0
+origin_z = 0
+
 # 모터 동작 함수
 def move_motor(step_pin, dir_pin, steps, direction):
     GPIO.output(dir_pin, direction)
@@ -69,16 +73,16 @@ def move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2):
     while check_origin == 0:
         while GPIO.input(LIMIT_Y) == GPIO.HIGH:
             move_motor(Y_STEP, Y_DIR, 1, GPIO.LOW)
-            current_y = origin.y
+            current_y = origin_y
         time.sleep(0.1)
         while GPIO.input(LIMIT_X) == GPIO.HIGH:
             move_motor(X_STEP, X_DIR, 1, GPIO.LOW)
-            current_x = origin.x
+            current_x = origin_x
         time.sleep(0.1)
         
         while GPIO.input(LIMIT_Z) == GPIO.HIGH:
             move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, 1, GPIO.LOW)
-            current_z = origin.z
+            current_z = origin_z
         check_origin = 1
         time.sleep(0.1)
         break
@@ -109,6 +113,7 @@ try:
         current_y = target_y  # 현재 Y 위치 업데이트
 
         time.sleep(2)
+        #print(current_x,current_y,current_z)
 
         move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2)
 
