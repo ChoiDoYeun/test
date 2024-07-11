@@ -62,7 +62,7 @@ def calculate_steps_and_direction(current_pos, target_pos):
     return steps, direction
         
 # 리밋 스위치 동작 함수
-def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, dir2_pin):
+def move_origin():
 
     check_origin = 0
 
