@@ -25,4 +25,4 @@ parking_spots =
     "D31": {"target_x": 328, "target_y": 85, "target_z": 468},
     "D32": {"target_x": 404, "target_y": 169, "target_z": 468}
 }
-
+# z축은 +22 (차량판이 걸림)
