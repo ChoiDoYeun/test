@@ -99,7 +99,7 @@ try:
 
         print(GPIO.input(LIMIT_Y))
 
-        while GPIO.input(LIMIT_Y) == GPIO.HIGH:
+        while GPIO.input(LIMIT_Y) == GPIO.LOW:
             move_motor(Y_STEP, Y_DIR, 1, GPIO.LOW)
             #print("y move")
             time.sleep(0.0002)
