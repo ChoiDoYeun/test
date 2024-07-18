@@ -75,19 +75,22 @@ def move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2):
     check_origin = 0
 
     while check_origin == 0:
-        while GPIO.input(LIMIT_Y) == GPIO.LOW:
+        while GPIO.input(LIMIT_Y) == GPIO.HIGH:
             print("y done")
+            break
 #            move_motor(Y_STEP, Y_DIR, 1, GPIO.LOW)
 #            current_y = origin_y
         time.sleep(0.1)
-        while GPIO.input(LIMIT_X) == GPIO.LOW:
+        while GPIO.input(LIMIT_X) == GPIO.HIGH:
             print("x done")
+            break
 #            move_motor(X_STEP, X_DIR, 1, GPIO.LOW)
 #            current_x = origin_x
         time.sleep(0.1)
         
-        while GPIO.input(LIMIT_Z) == GPIO.LOW:
+        while GPIO.input(LIMIT_Z) == GPIO.HIGH:
             print("z done")
+            break
 #            move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, 1, GPIO.LOW)
 #            current_z = origin_z
         check_origin = 1
