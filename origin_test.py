@@ -101,7 +101,8 @@ try:
             move_motor(Y_STEP, Y_DIR, 1, GPIO.LOW)
             #print("y move")
             time.sleep(0.0002)
-            print(GPIO.input(LIMIT_Y) == GPIO.HIGH)
+            print(GPIO.input(LIMIT_Y))
+            print("   "+str(GPIO.HIGH))
             current_y = origin_y
         print("y done")
         time.sleep(0.1)
