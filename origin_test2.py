@@ -70,22 +70,22 @@ def calculate_steps_and_direction(current_pos, target_pos):
     return steps, direction
         
 # 리밋 스위치 동작 함수
-def move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2):
+def move_origin(X_STEP,X_DIR,Y_STEP,Y_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2):
     global current_x, current_y, current_z
     check_origin = 0
 
     while check_origin == 0:
-        while GPIO.input(LIMIT_Y) == GPIO.HIGH:
-            move_motor(Y_STEP, Y_DIR, 1, GPIO.LOW)
-            print("y move")
-            current_y = origin_y
-        print("y done")
-        time.sleep(0.1)
         while GPIO.input(LIMIT_X) == GPIO.HIGH:
-            
             move_motor(X_STEP, X_DIR, 1, GPIO.LOW)
+            print("x move")
             current_x = origin_x
         print("x done")
+        time.sleep(0.1)
+        while GPIO.input(LIMIT_Y) == GPIO.HIGH:
+            
+            move_motor(Y_STEP, Y_DIR, 1, GPIO.LOW)
+            current_y = origin_y
+        print("y done")
         time.sleep(0.1)
         
         while GPIO.input(LIMIT_Z) == GPIO.HIGH:
