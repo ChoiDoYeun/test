@@ -3,22 +3,22 @@ import time
 
 # 모터 드라이버 핀 설정
 # 모터 드라이버 핀 설정
-X_STEP = 17
-X_DIR = 18
-Y_STEP = 27
-Y_DIR = 22
-Z_STEP_1 = 23
-Z_DIR_1 = 24
-Z_STEP_2 = 25
-Z_DIR_2 = 8
-A_STEP = 10  # A모터 핀설정
-A_DIR = 9
-LIMIT_X = 5
-LIMIT_Y = 6
-LIMIT_Z = 16
+X_STEP = 17 
+X_DIR = 18 
+Y_STEP = 27 
+Y_DIR = 22 
+Z_STEP_1 = 23  
+Z_DIR_1 = 24 
+Z_STEP_2 = 25 
+Z_DIR_2 = 8 
+A_STEP = 10  # A모터 핀설정 
+A_DIR = 9 
+LIMIT_X = 5 
+LIMIT_Y = 6 
+LIMIT_Z = 16 
 
-Con_STEP = 7
-Con_DIR = 13
+Con_STEP = 7 
+Con_DIR = 13 
 
 
 # 스텝 설정
@@ -70,22 +70,22 @@ def calculate_steps_and_direction(current_pos, target_pos):
     return steps, direction
         
 # 리밋 스위치 동작 함수
-def move_origin(X_STEP,X_DIR,Y_STEP,Y_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2):
+def move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2):
     global current_x, current_y, current_z
     check_origin = 0
 
     while check_origin == 0:
-        while GPIO.input(LIMIT_X) == GPIO.HIGH:
-            move_motor(X_STEP, X_DIR, 1, GPIO.LOW)
-            print("x move")
-            current_x = origin_x
-        print("x done")
-        time.sleep(0.1)
         while GPIO.input(LIMIT_Y) == GPIO.HIGH:
-            
             move_motor(Y_STEP, Y_DIR, 1, GPIO.LOW)
+            print("y move")
             current_y = origin_y
         print("y done")
+        time.sleep(0.1)
+        while GPIO.input(LIMIT_X) == GPIO.HIGH:
+            
+            move_motor(X_STEP, X_DIR, 1, GPIO.LOW)
+            current_x = origin_x
+        print("x done")
         time.sleep(0.1)
         
         while GPIO.input(LIMIT_Z) == GPIO.HIGH:
