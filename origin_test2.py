@@ -79,7 +79,6 @@ def move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2):
             move_motor(Y_STEP, Y_DIR, 1, GPIO.LOW)
             print("y move")
             current_y = origin_y
-            break
         print("y done")
         time.sleep(0.1)
         while GPIO.input(LIMIT_X) == GPIO.HIGH:
@@ -87,7 +86,6 @@ def move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2):
             move_motor(X_STEP, X_DIR, 1, GPIO.LOW)
             print("x move")
             current_x = origin_x
-            break
         print("x done")
         time.sleep(0.1)
         
@@ -96,7 +94,6 @@ def move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP_1,Z_DIR_1,Z_STEP_2,Z_DIR_2):
             move_Z_motor(Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2, 1, GPIO.LOW)
             print("z move")
             current_z = origin_z
-            break
 
         print("z done")
         check_origin = 1
