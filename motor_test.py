@@ -88,7 +88,7 @@ try:
         target_x = int(input("target X : "))
         target_y = int(input("target Y : "))
         target_z = int(input("target Z : "))
-        target_a = int(input("target A : "))
+        target_a = float(input("target A : "))
         target_con = int(input("target con : "))
 
         # 컨베이어 벨트 이동
