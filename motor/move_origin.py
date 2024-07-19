@@ -25,6 +25,5 @@ def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, di
    time.sleep(0.1)
    print("done origin")
    
-   break
 
 
