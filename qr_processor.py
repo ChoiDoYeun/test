@@ -21,20 +21,26 @@ def process_qr_code_input(warehouse):
             os.remove('/home/dodo/test/cropped_test.png')
 
             if qr_data:
-                cars = qr_data.split('\n')
-                for car in cars:
-                    if car:
-                        location = warehouse.store_item(car)
-                        if location:
-                            print(f"{car}가 {location}에 저장되었습니다.")
-                            x, y, z = warehouse.calculate_coordinates(location)
-                            input_mode(x,y,z)
-                        else:
-                            print(f"{car}를 저장할 공간이 없습니다.")
-                time.sleep(5) # <- 시간은 인식하고 컨베이어벨트가 동작하는 시간
+                # QR 코드에서 차량 정보 추출
+                car = qr_data.strip()
+                if car:
+                    # 창고에 차량 정보 저장
+                    location = warehouse.store_item(car)
+                    if location:
+                        print(f"{car}가 {location}에 저장되었습니다.")
+                        # 저장 위치의 좌표 계산
+                        x, y, z = warehouse.calculate_coordinates(location)
+                        # 좌표 입력 모드 호출
+                        input_mode(x, y, z)
+                    else:
+                        print(f"{car}를 저장할 공간이 없습니다.")
+                else:
+                    print("차량 정보가 QR 코드에 포함되어 있지 않습니다.")
             else:
                 print("QR 코드를 읽을 수 없습니다.")
-            time.sleep(1)
+            
+            # 5초마다 동작
+            time.sleep(5)
         except StopThreadException:
             break  # 예외가 발생하면 루프를 종료합니다.
         
