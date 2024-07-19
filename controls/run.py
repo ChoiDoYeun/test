@@ -7,6 +7,6 @@ import time
 
 def run():
     print("Run (원점이동) 시작")
-    move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, dir2_pin)
+    move_origin(Y_STEP, Y_DIR, X_STEP, X_DIR, Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2)
     print("원점이동 완료")
     time.sleep(0.5)
