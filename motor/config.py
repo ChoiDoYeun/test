@@ -10,7 +10,7 @@ current_z = 0
 
 origin_x = 0
 origin_y = 0
-origin+z = 0
+origin_z = 0
 
 
 
