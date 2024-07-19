@@ -88,7 +88,7 @@ try:
         target_x = int(input("target X : "))
         target_y = int(input("target Y : "))
         target_z = int(input("target Z : "))
-        target_a = float(input("target A : "))
+        target_a = int(input("target A : "))
         target_con = int(input("target con : "))
 
         # 컨베이어 벨트 이동
@@ -118,11 +118,13 @@ try:
         print(direction)
         time.sleep(0.002)  # 대기 시간
         current_y = target_y  # 현재 Y 위치 업데이트
-        
+
+        # a모터 동작
         steps, direction = calculate_steps_and_direction(current_a, target_a) # Y축 dir방향, step수 계산
-        move_A_motor(A_STEP, A_DIR, steps, direction) # Y축 모터 동작
+        adjusted_steps = int(steps * 0.8)  # A 모터에 대해 0.8 배율 적용
+        move_A_motor(A_STEP, A_DIR, steps, direction) # a모터 동작
         time.sleep(0.002)  # 대기 시간
-        current_a = target_a  # 현재 Y 위치 업데이트
+        current_a = target_a  # 현재 a 위치 업데이트
 
         # 컨베이어 벨트 이동
         # steps = 141 * 200
