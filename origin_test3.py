@@ -14,7 +14,7 @@ Z_DIR_2 = 8
 A_STEP = 10  # A모터 핀설정
 A_DIR = 9
 LIMIT_X = 5
-LIMIT_Y = 6
+LIMIT_Y = 19
 LIMIT_Z = 16
 
 Con_STEP = 7
