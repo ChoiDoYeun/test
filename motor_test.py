@@ -56,7 +56,9 @@ def move_Z_motor(step1_pin, dir1_pin, step2_pin, dir2_pin, steps, direction):
 
 def move_A_motor(step_pin, dir_pin, steps, direction):
     GPIO.output(dir_pin, direction)
-    for _ in range(steps):
+    # 스텝 수에 배율 적용
+    adjusted_steps = int(steps * 0.8)  # 0.8 배율 적용
+    for _ in range(adjusted_steps):
         GPIO.output(step_pin, GPIO.HIGH)
         time.sleep(0.01)  # 1ms 대기
         GPIO.output(step_pin, GPIO.LOW)
@@ -64,9 +66,7 @@ def move_A_motor(step_pin, dir_pin, steps, direction):
 
 def move_Con_motor(step_pin, dir_pin, steps, direction):
     GPIO.output(dir_pin, direction)
-    # 스텝 수에 배율 적용
-    adjusted_steps = int(steps * 0.8)  # 0.8 배율 적용
-    for _ in range(adjusted_steps):
+    for _ in range(steps):
         GPIO.output(step_pin, GPIO.HIGH)
         time.sleep(0.0002)  # 1ms 대기
         GPIO.output(step_pin, GPIO.LOW)
