@@ -8,6 +8,10 @@ current_x = 0
 current_y = 0
 current_z = 0
 
+origin_x = 0
+origin_y = 0
+origin+z = 0
+
 
 
 def initialize():
