@@ -31,7 +31,7 @@ def initialize():
     Con_DIR = 13
 
     LIMIT_X = 5
-    LIMIT_Y = 6
+    LIMIT_Y = 19
     LIMIT_Z = 16
     # GPIO 설정
     GPIO.setmode(GPIO.BCM)
