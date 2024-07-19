@@ -3,7 +3,7 @@ import time
 from motor.config import initialize, current_x, current_y, current_z,origin_x,origin_y,origin_z
 from motor.move_motor import move_motor, move_Z_motor
 
-def move_origin(y_step, y_dir, x_step, x_dir, step1_pin, step2_pin, dir1_pin, dir2_pin):
+def move_origin(Y_STEP, Y_DIR, X_STEP, X_DIR, Z_STEP_1, Z_DIR_1, Z_STEP_2, Z_DIR_2):
    global current_x, current_y, current_z,origin_x,origin_y,origin_z
    while GPIO.input(LIMIT_Y) == GPIO.HIGH:
       move_motor(Y_STEP, Y_DIR, 1, GPIO.LOW)
