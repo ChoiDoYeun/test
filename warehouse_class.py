@@ -27,7 +27,7 @@ class Warehouse:
         # Y 좌표 계산 : 1층 증가할때마다 +84
         y = 1 + (floor - 1) * 84
 
-        # Z 좌표 계산 : A&B는 250,C&D는 490
+        # Z 좌표 계산 : A&B는 250, C&D는 490
         z = 250 if building in ['A', 'B'] else 490 
 
         return x, y, z
