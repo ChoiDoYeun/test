@@ -45,6 +45,6 @@ def output_mode(x,y,z):
     move_item_high()
     print("출차중 : 출차완료")
     time.sleep(0.01)
-    move_con_low()
-    time.sleep(1)
     move_con_high()
+    time.sleep(1)
+    move_con_low()
