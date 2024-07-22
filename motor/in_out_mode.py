@@ -7,7 +7,7 @@ import time
 
 def input_mode(x,y,z): 
     warehouse = Warehouse()
-    move_origin(Y_STEP,Y_DIR,X_STEP,X_DIR,Z_STEP1,Z_DIR1,Z_STEP2,Z_DIR2)
+    move_position_back(0,15,0)
     time.sleep(0.01)
     move_con_high()
     time.sleep(0.01)
