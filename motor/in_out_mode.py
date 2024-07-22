@@ -1,6 +1,6 @@
 # in_out_mode.py
 from warehouse_class import Warehouse
-from motor.move_position import move_position_go,move_position_back,
+from motor.move_position import move_position_go,move_position_back
 from motor.move_item import move_item_high,move_item_low,move_con_high,move_con_low
 import time
 
