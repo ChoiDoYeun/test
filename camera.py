@@ -56,6 +56,8 @@ def capture_image(output_path):
     
             # 모델을 사용하여 이미지에서 객체 감지
             results = model(img_pil)
+            
+            print("감지중")
     
             # 감지된 객체 처리
             if results.xyxy[0].shape[0] > 0:  # 객체가 감지된 경우
