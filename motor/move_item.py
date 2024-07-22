@@ -10,7 +10,7 @@ def move_item_high():
     steps = 1 *200# 예시
     direction = GPIO.HIGH # 예시
     print("A모터 동작중")
-    move_A_motor(A_STEP, A_DIR,step,direction)
+    move_A_motor(A_STEP, A_DIR,steps,direction)
     print("A모터 동작완료")
     
 def move_item_low():
@@ -18,7 +18,7 @@ def move_item_low():
     steps = 1*200# 예시
     direction = GPIO.LOW # 예시
     print("A모터 동작중")
-    move_A_motor(A_STEP, A_DIR,step,direction)
+    move_A_motor(A_STEP, A_DIR,steps,direction)
     print("A모터 동작완료")
 
 def move_con_high():
@@ -26,7 +26,7 @@ def move_con_high():
     steps = 191 *200
     direction = GPIO.HIGH # 예시
     print("con 동작중")
-    move_motor(Con_STEP, Con_DIR, step,direction)
+    move_motor(Con_STEP, Con_DIR, steps,direction)
     print("con 동작완료")
 
 def move_con_low():
@@ -34,5 +34,5 @@ def move_con_low():
     steps = 191 * 200
     direction = GPIO.LOW # 예시
     print("con 동작중")
-    move_motor(Con_STEP, Con_DIR, step,direction)
+    move_motor(Con_STEP, Con_DIR, steps,direction)
     print("con 동작완료")
