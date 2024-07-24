@@ -20,8 +20,8 @@ class Warehouse:
         floor = int(location[1])
         room = int(location[2])
 
-        # X좌표 계산 : A&C는 84, B&D는 401, 2호실 = 1호실 + 76
-        x = 86 if building in ['A', 'C'] else 403
+        # X좌표 계산 : A&C는 86, B&D는 330, 2호실 = 1호실 + 76
+        x = 86 if building in ['A', 'C'] else 330
         x += (room - 1) * 76
 
         # Y 좌표 계산 : 1층 증가할때마다 +84
