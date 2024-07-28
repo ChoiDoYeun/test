@@ -40,7 +40,7 @@ def output_mode(x,y,z):
     time.sleep(0.01)
     move_position_go(x,y-2,z+19) # 타워 밖으로 이동
     time.sleep(0.01)
-    move_position_back(0,19,0) # 출차장소로 이동
+    move_position_back(0,18,0) # 출차장소로 이동
     time.sleep(0.01)
     move_con_high()
     time.sleep(0.01)
