@@ -30,7 +30,7 @@ def initialize():
     Con_STEP = 7
     Con_DIR = 13
 
-    LIMIT_X = 5
+    LIMIT_X = 6
     LIMIT_Y = 19
     LIMIT_Z = 16
     # GPIO 설정
