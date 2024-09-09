@@ -97,19 +97,19 @@ try:
         time.sleep(2)
         #print(current_x,current_y,current_z)
 
-        print(GPIO.input(LIMIT_Y))
+        print(GPIO.input(LIMIT_X))
 
         while GPIO.input(LIMIT_Y) == GPIO.HIGH:
             move_motor(Y_STEP, Y_DIR, 1, GPIO.LOW)
             #print("y move")
-            time.sleep(0.0002)
-            print(GPIO.input(LIMIT_Y))
-            print("   "+str(GPIO.HIGH))
             current_y = origin_y
         print("y done")
         time.sleep(0.1)
         while GPIO.input(LIMIT_X) == GPIO.HIGH:
             move_motor(X_STEP, X_DIR, 1, GPIO.LOW)
+            time.sleep(0.0002)
+            print(GPIO.input(LIMIT_X))
+            print("   "+str(GPIO.HIGH))
             current_x = origin_x
         print("x done")
         time.sleep(0.1)
