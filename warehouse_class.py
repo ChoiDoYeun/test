@@ -22,7 +22,7 @@ class Warehouse:
 
         # X좌표 계산 : A&C는 86, B&D는 330, 2호실 = 1호실 + 76
         x = 84 if building in ['A', 'C'] else 328
-        x += (room - 1) * 75
+        x += (room - 1) * 77
 
         # Y 좌표 계산 : 1층 증가할때마다 +84
         y = 2 + (floor - 1) * 84
