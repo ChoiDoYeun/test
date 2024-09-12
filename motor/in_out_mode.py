@@ -33,7 +33,7 @@ def output_mode(x,y,z):
     warehouse = Warehouse()
     move_position_go(x,y-2,z) # 저장장소로 이동
     time.sleep(0.01)
-    move_position_go(x,y-2,z-25) # 타워 안으로 이동
+    move_position_go(x,y-2,z-26) # 타워 안으로 이동
     time.sleep(0.01)
     move_item_high() # 꺼내기
     print("출차중 : 함에 이동완료")
