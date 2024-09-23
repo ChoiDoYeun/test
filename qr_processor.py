@@ -39,8 +39,8 @@ def process_qr_code_input(warehouse):
             else:
                 print("QR 코드를 읽을 수 없습니다.")
             
-            # 5초마다 동작
-            time.sleep(5)
+            # 0.5초마다 동작
+            time.sleep(0.5) # 변경점
         except StopThreadException:
             break  # 예외가 발생하면 루프를 종료합니다.
         
@@ -66,6 +66,7 @@ def process_qr_code_output(warehouse):
                 time.sleep(5) # <- 시간은 인식하고 컨베이어벨트가 동작하는 시간
             else:
                 print("QR 코드를 읽을 수 없습니다.")
-            time.sleep(5)
+            # 0.5초마다 동작   
+            time.sleep(0.5) #변경점
         except StopThreadException:
             break
