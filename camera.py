@@ -5,6 +5,17 @@ import numpy as np
 from PIL import Image
 from pyzbar.pyzbar import decode
 
+# Yolov5 모델을 글로벌 변수로 선언하여 한 번만 로드
+model = None
+
+def load_model():
+    global model
+    if model is None:
+        base_path = "/home/dodo/test/"
+        model_path = base_path + 'best.pt'
+        model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=False)
+    return model
+
 # 감지된 객체 크롭하고 저장하는 함수
 def crop_object(results, img_pil, output_path):
     if len(results.xyxy[0]) > 0:  # 객체가 감지된 경우
@@ -27,15 +38,12 @@ def read_qr_code(image_path):
 def capture_image(output_path):
     # 경로 설정
     base_path = "/home/dodo/test/"
-    model_path = base_path + 'best.pt'
     cropped_img_path = base_path + 'cropped_test.png'
     output_path = base_path + 'resize_test.png'
     full_image_path = base_path + 'full_frame.png'  # 전체 프레임 저장 경로
     
-    # 저장된 모델 로드
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
-    torch.save(model.state_dict(), "local_model_path.pt")
-    model.load_state_dict(torch.load("local_model_path.pt"))
+    # 모델 로드 (한 번만 로드)
+    model = load_model()
     
     # 카메라 설정
     cap = cv2.VideoCapture(0)  # 0은 기본 카메라
