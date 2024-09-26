@@ -33,6 +33,6 @@ def move_Con_motor(step_pin, dir_pin, steps, direction):
     GPIO.output(dir_pin, direction)
     for _ in range(steps):
         GPIO.output(step_pin, GPIO.HIGH)
-        time.sleep(0.0001)  # 1ms 대기
+        time.sleep(0.0002)  # 1ms 대기
         GPIO.output(step_pin, GPIO.LOW)
-        time.sleep(0.0001)
+        time.sleep(0.0002)
