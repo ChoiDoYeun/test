@@ -5,16 +5,8 @@ import numpy as np
 from PIL import Image
 from pyzbar.pyzbar import decode
 
-# Yolov5 모델을 글로벌 변수로 선언하여 한 번만 로드
+# 전역적으로 모델 로드
 model = None
-
-def load_model():
-    global model
-    if model is None:
-        base_path = "/home/dodo/test/"
-        model_path = base_path + 'best.pt'
-        model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=False)
-    return model
 
 # 감지된 객체 크롭하고 저장하는 함수
 def crop_object(results, img_pil, output_path):
@@ -35,44 +27,55 @@ def read_qr_code(image_path):
     decoded_objects = decode(img)
     return decoded_objects[0].data.decode() if decoded_objects else ""
 
+# 모델을 한 번만 로드하도록 하는 함수
+def load_model():
+    global model
+    if model is None:
+        # 저장된 모델 로드
+        base_path = "/home/dodo/test/"
+        model_path = base_path + 'best.pt'
+        model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=False)
+        torch.save(model.state_dict(), "local_model_path.pt")
+        model.load_state_dict(torch.load("local_model_path.pt"))
+
 def capture_image(output_path):
     # 경로 설정
     base_path = "/home/dodo/test/"
     cropped_img_path = base_path + 'cropped_test.png'
     output_path = base_path + 'resize_test.png'
     full_image_path = base_path + 'full_frame.png'  # 전체 프레임 저장 경로
-    
-    # 모델 로드 (한 번만 로드)
-    model = load_model()
-    
+
+    # 모델 로드
+    load_model()  # 모델을 한 번만 로드하고 재사용
+
     # 카메라 설정
     cap = cv2.VideoCapture(0)  # 0은 기본 카메라
 
     img = Image.new("RGB", (450, 450), color=(0, 0, 0))
     img.save(cropped_img_path)
     img.save(output_path)
-    
+
     try:
         while True:
             # 카메라로부터 이미지 읽기
             ret, frame = cap.read()
             if not ret:
                 break
-            
+
             # OpenCV 이미지를 PIL 이미지로 변환
             img_pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-    
+
             # 모델을 사용하여 이미지에서 객체 감지
             results = model(img_pil)
-    
+
             # 감지된 객체 처리
             if results.xyxy[0].shape[0] > 0:  # 객체가 감지된 경우
                 img_pil.save(full_image_path)  # 전체 프레임 저장
                 crop_object(results, img_pil, cropped_img_path)
                 resize_image(cropped_img_path, output_path)
-    
+
                 qr_code = read_qr_code(output_path)
-    
+
                 if qr_code:
                     break  # qr_code가 생성되면 반복문 종료
 
