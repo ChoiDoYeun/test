@@ -4,13 +4,13 @@ import RPi.GPIO as GPIO
 STEPS_PER_MM = 200
 
 # Global position variables
-float current_x = 0.0
-float current_y = 0.0
-float current_z = 0.0
+current_x = 0.0
+current_y = 0.0
+current_z = 0.0
 
-float origin_x = 0.0
-float origin_y = 0.0
-float origin_z = 0.0
+origin_x = 0.0
+origin_y = 0.0
+origin_z = 0.0
 
 
 
