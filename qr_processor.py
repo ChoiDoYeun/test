@@ -118,7 +118,7 @@ def process_qr_code(warehouse,state):
                 else:
                     print("QR 코드를 읽을 수 없습니다.")
                     
-            else if state == 'normal' :
+            else:
                 print("대기중")
                 
         except StopThreadException:
