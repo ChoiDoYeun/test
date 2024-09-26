@@ -101,7 +101,7 @@ def process_qr_code(warehouse,state):
                 else:
                     print("QR 코드를 읽을 수 없습니다.")
 
-            else if state == 'output':
+            elif state == 'output':
                 if qr_data:
                     cars = qr_data.split(',')
                     for car in cars:
@@ -118,7 +118,7 @@ def process_qr_code(warehouse,state):
                 else:
                     print("QR 코드를 읽을 수 없습니다.")
                     
-            else if == 'normal' :
+            elif == 'normal' :
                 print("대기중")
                 
         except StopThreadException:
