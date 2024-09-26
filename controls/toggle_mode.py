@@ -1,6 +1,6 @@
 # toggle_mode.py
 import threading
-from qr_processor import process_qr_code_input,process_qr_code_output, StopThreadException,process_qr_code
+from qr_processor import process_qr_code_input,process_qr_code_output, StopThreadException
 
 global qr_thread
 qr_thread = None
