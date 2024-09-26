@@ -48,7 +48,6 @@ def create_control_buttons(mode_frame):
     control_frame.grid(row=4, column=0, padx=2, pady=2)
 
     tk.Button(control_frame, text="RUN", bg="green", command=run, width=10, height=3).pack(side=tk.TOP, padx=5, pady=5)
-    tk.Button(control_frame, text="STOP", bg="red", command=stop, width=10, height=3).pack(side=tk.TOP, padx=5, pady=5)
 
 def create_gui(warehouse, callback=None):
     root = tk.Tk()
