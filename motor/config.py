@@ -1,7 +1,7 @@
 # config.py
 import RPi.GPIO as GPIO
 
-STEPS_PER_MM = 200
+STEPS_PER_MM = 200.0
 
 # Global position variables
 current_x = 0.0
